@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "@/styles/mixin.scss";
+@import "@/styles/media-queries.scss";
+
+* {
+  font-family: Poppins, sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  color: var(--dark) !important;
+  background-color: var(--light);
+  overflow-x: clip;
+  font-size: 8px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+.h1 {
+  @include h1;
+}
+
+h2,
+.h2 {
+  @include h2;
+}
+
+h3,
+.h3 {
+  @include h3;
+}
+
+.h3-bold {
+  @include h3-bold;
+}
+
+.subtitle-normal {
+  @include subtitle-normal;
+}
+
+.subtitle-semi-bold {
+  @include subtitle-semi-bold;
+}
+
+.body1 {
+  @include body1;
+}
+
+.body2-normal {
+  @include body2-normal;
+}
+
+.body2-normal-underline {
+  @include body2-normal-underline;
+}
+
+.body2-medium {
+  @include body2-medium;
+}
+
+.body2-semi-bold {
+  @include body2-semi-bold;
+}
+
+.body3-normal {
+  @include body3-normal;
+}
+
+.body3-medium {
+  @include body3-medium;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+#header {
+  width: 100%;
+  top: 0;
+  position: sticky;
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(10px);
+}
+
+.height {
+  height: 3000px;
+}

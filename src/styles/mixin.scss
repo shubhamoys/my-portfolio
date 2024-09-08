@@ -1,0 +1,132 @@
+@import "@/styles/media-queries.scss";
+
+@mixin h1 {
+  font-size: 60px !important;
+  font-weight: 700 !important;
+  line-height: 72px !important;
+  letter-spacing: -1.2px;
+
+  @include lt-md {
+    font-size: 48px !important;
+    line-height: 48px !important;
+    letter-spacing: -0.8px;
+  }
+
+  @include lt-sm {
+    font-size: 36px !important;
+    font-weight: 600 !important;
+    line-height: 40px !important;
+  }
+}
+
+@mixin h2 {
+  font-size: 36px !important;
+  font-weight: 600 !important;
+  line-height: 40px !important;
+  letter-spacing: -0.72px;
+
+  @include lt-md {
+    font-size: 18px !important;
+    line-height: 28px !important;
+    letter-spacing: -0.36px !important;
+  }
+}
+
+@mixin h3 {
+  font-size: 30px !important;
+  font-weight: 600 !important;
+  line-height: 36px !important;
+  letter-spacing: -0.6px !important;
+
+  @include lt-md {
+    font-size: 24px !important;
+    line-height: 32px !important;
+    letter-spacing: 0.48px !important;
+  }
+}
+
+@mixin h3-bold {
+  @include h3;
+  font-weight: 700 !important;
+
+  @include lt-md {
+    font-weight: 700 !important;
+  }
+}
+
+@mixin subtitle-normal {
+  font-size: 20px !important;
+  font-weight: 400 !important;
+  line-height: 28px !important;
+
+  @include lt-md {
+    font-size: 18px !important;
+    line-height: 28px !important;
+  }
+}
+
+@mixin subtitle-semi-bold {
+  @include subtitle-normal;
+  font-weight: 600 !important;
+
+  @include lt-md {
+    font-weight: 600 !important;
+  }
+}
+
+@mixin body1 {
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 28px !important;
+
+  @include lt-md {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+}
+
+@mixin body2-normal {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 24px !important;
+}
+
+@mixin body2-normal-underline {
+  @include body2-normal;
+  text-decoration: underline !important;
+}
+
+@mixin body2-medium {
+  @include body2-normal;
+  font-weight: 500 !important;
+}
+
+@mixin body2-semi-bold {
+  @include body2-normal;
+  font-weight: 600 !important;
+}
+
+@mixin body3-normal {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 20px !important;
+}
+
+@mixin body3-medium {
+  @include body3-normal;
+  font-weight: 500 !important;
+}
+
+// @mixin shadow-md {
+//   box-shadow: 0px, 4px, 3px, 0px, rgba(13, 19, 33, 0.07), 0px, 2px, 2px, 0px,
+//     rgba(13, 19, 33, 0.06);
+// }
+
+// @mixin shadow-lg {
+//   box-shadow: 0px, 4px, 3px, 0px, rgba(13, 19, 33, 0.1), 0px, 10px, 8px, 0px,
+//     rgba(13, 19, 33, 0.04);
+// }
+
+// @mixin shadow-2xl {
+//   box-shadow: 0px, 25px, 25px, 0px, rgba(13, 19, 33, 0.15);
+// }
