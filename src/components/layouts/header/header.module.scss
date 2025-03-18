@@ -8,32 +8,54 @@
   max-width: 1440px;
   margin-inline: auto;
 
-  .logo {
-    width: 66px;
-    height: auto;
+  // .logo {
+  //   width: 66px;
+  //   height: auto;
 
-    img {
-      width: 100%;
-      height: 100%;
+  //   img {
+  //     width: 100%;
+  //     height: 100%;
 
-      &:hover {
-        transform: scale(1.1);
-        cursor: pointer;
-      }
+  //     &:hover {
+  //       transform: scale(1.1);
+  //       cursor: pointer;
+  //     }
+  //   }
+  // }
+
+  h3 {
+    &:hover {
+      transform: scale(1.1);
+      cursor: pointer;
     }
   }
 
-  nav {
+  // a {
+  //   color: var(--dark) !important;
+
+  //   &:hover {
+  //     transform: scale(1.1);
+  //   }
+  // }
+
+  .navWrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 3rem;
 
-    a {
-      color: var(--dark-300) !important;
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
 
-      &:hover {
-        transform: scale(1.1);
+      a {
+        color: var(--dark-300) !important;
+
+        &:hover {
+          transform: scale(1.1);
+        }
       }
     }
 
@@ -41,9 +63,19 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 2rem;
+      gap: 3rem;
 
-      button {
+      .themeIcon {
+        height: 4rem;
+        width: auto;
+
+        &:hover {
+          transform: scale(1.1);
+          cursor: pointer;
+        }
+      }
+
+      .download {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -51,8 +83,37 @@
         padding: 1rem 2rem;
         border-radius: 1.5rem;
         background-color: var(--secondary);
-        color: var(--light);
+        color: var(--button-text);
       }
     }
+
+    @include lt-md {
+      display: none;
+    }
+  }
+
+  .hamburgerMenu {
+    display: none;
+
+    img {
+      height: 4rem;
+      width: auto;
+    }
+
+    @include lt-md {
+      display: block;
+    }
+  }
+
+  @include lt-lg {
+    padding-inline: 5rem;
+  }
+
+  @include lt-md {
+    padding-inline: 5rem;
+  }
+
+  @include lt-sm {
+    padding-inline: 2rem;
   }
 }
