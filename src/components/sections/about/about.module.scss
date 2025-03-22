@@ -1,0 +1,90 @@
+@import "@/styles/mixin.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: 12rem 10rem;
+
+  @include lt-lg {
+    padding-inline: 5rem;
+  }
+
+  @include lt-md {
+    padding-block: 8rem;
+  }
+
+  @include lt-sm {
+    padding: 8rem 2rem;
+  }
+
+  .sectionTitle {
+    background-color: var(--primary);
+    border-radius: 1.5rem;
+    padding: 0.5rem 2.5rem;
+
+    span {
+      color: var(--light);
+    }
+  }
+
+  .sectionBody {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6rem;
+    width: 100%;
+
+    @media only screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    // @include lt-sm {
+    //   flex-direction: column;
+    // }
+
+    .image {
+      img {
+        height: auto;
+        width: 62.5rem;
+
+        @include lt-md {
+          width: 48rem;
+        }
+
+        @include lt-sm {
+          width: 43rem;
+        }
+      }
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+
+      .tertiary {
+        color: var(--tertiary);
+      }
+
+      .description {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        justify-content: flex-start;
+        align-items: center;
+
+        p {
+          color: var(--dark-300);
+        }
+      }
+    }
+  }
+}
