@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
-import styles from "./drawer.module.scss";
-import Link from "next/link";
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
-import { NAV_LINKS } from "@/lib/data";
 import IconButton from "@/components/general/icon-button/icon-button";
+import { NAV_LINKS } from "@/lib/data";
+import { useTheme } from "next-themes";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import styles from "./drawer.module.scss";
 
 interface DrawerProps {
   isOpen: boolean;
@@ -42,15 +42,11 @@ export default function Drawer({ isOpen, onClose }: DrawerProps) {
       {/* Drawer */}
       <div className={`${styles.drawer} ${isOpen ? styles.open : ""}`}>
         <div className={styles.header}>
-          {/* <Image
-            src="/assets/logos/logo.svg"
-            width={24}
-            height={24}
-            alt=""
-            className={styles.logo}
-          /> */}
+          {/* <h3>{"{SS}"}</h3> */}
 
-          <h3>{"{SS}"}</h3>
+          <Link href="/" className="h3" onClick={onClose}>
+            {"{SS}"}
+          </Link>
 
           <Image
             src={

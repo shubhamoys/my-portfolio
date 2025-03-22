@@ -23,20 +23,20 @@
   //   }
   // }
 
-  h3 {
-    &:hover {
-      transform: scale(1.1);
-      cursor: pointer;
-    }
-  }
-
-  // a {
-  //   color: var(--dark) !important;
-
+  // h3 {
   //   &:hover {
   //     transform: scale(1.1);
+  //     cursor: pointer;
   //   }
   // }
+
+  a {
+    color: var(--dark) !important;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 
   .navWrapper {
     display: flex;

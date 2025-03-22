@@ -1,11 +1,16 @@
+import About from "@/components/sections/about/about";
+import Hero from "@/components/sections/hero/hero";
+
 export default function Home() {
   return (
     <>
-      <section className="height">
-        <h1>Portfolio</h1>
+      <section id="hero">
+        <Hero></Hero>
       </section>
 
-      <section></section>
+      <section id="about">
+        <About></About>
+      </section>
     </>
   );
 }

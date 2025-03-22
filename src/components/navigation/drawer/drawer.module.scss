@@ -21,10 +21,12 @@
     padding: 2rem;
     border-bottom: 1px solid var(--dark-800);
 
-    .logo {
-      width: 66px;
-      height: auto;
-      fill: red;
+    a {
+      color: var(--dark) !important;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
 
     .closeIcon {

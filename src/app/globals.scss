@@ -118,6 +118,12 @@ button {
   background-color: var(--dark-900);
 }
 
-.height {
-  height: 3000px;
+#hero {
+  // height: 100vh;
+}
+
+#about {
+  background-color: var(--dark-900);
+
+  height: 100vh;
 }
