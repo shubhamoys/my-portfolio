@@ -28,8 +28,6 @@ body {
 
 .blurred {
   filter: blur(4px);
-  transition: filter 0.3s ease;
-  // pointer-events: none; // Prevents interaction with blurred content
 }
 
 h1,
@@ -113,6 +111,11 @@ button {
   &.scrolled {
     border-bottom: 1px solid var(--dark-800); // Show border when scrolled
   }
+}
+
+#footer {
+  border-top: 1px solid var(--dark-800);
+  background-color: var(--dark-900);
 }
 
 .height {

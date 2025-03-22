@@ -1,0 +1,18 @@
+@import "@/styles/mixin.scss";
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 10rem;
+  max-width: 1440px;
+  margin-inline: auto;
+
+  .tertiary {
+    color: var(--tertiary);
+  }
+
+  @include lt-sm {
+    padding-inline: 4.5rem;
+  }
+}

@@ -1,7 +1,11 @@
 export default function Home() {
   return (
-    <div className="height">
-      <h1>Portfolio</h1>
-    </div>
+    <>
+      <section className="height">
+        <h1>Portfolio</h1>
+      </section>
+
+      <section></section>
+    </>
   );
 }

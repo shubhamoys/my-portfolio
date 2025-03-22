@@ -60,9 +60,11 @@ export function ClientSideWrapper({ children }: { children: React.ReactNode }) {
       {/* Drawer Component */}
       <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
 
-      <section id="main" className={isDrawerOpen ? "blurred" : ""}>
-        <main>{children}</main>
-      </section>
+      {/* <section id="main" className={isDrawerOpen ? "blurred" : ""}> */}
+      <main id="main" className={isDrawerOpen ? "blurred" : ""}>
+        {children}
+      </main>
+      {/* </section> */}
 
       <section id="footer" className={isDrawerOpen ? "blurred" : ""}>
         <Footer></Footer>
