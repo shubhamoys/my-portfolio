@@ -1,0 +1,36 @@
+@import "@/styles/mixin.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: 12rem 10rem;
+
+  @include lt-lg {
+    padding-inline: 5rem;
+  }
+
+  @include lt-md {
+    padding-block: 8rem;
+  }
+
+  @include lt-sm {
+    padding: 8rem 2rem;
+    // flex-direction: column-reverse;
+    // gap: 6rem;
+  }
+
+  .sectionTitle {
+    background-color: var(--primary);
+    border-radius: 1.5rem;
+    padding: 0.5rem 2.5rem;
+
+    span {
+      color: var(--light);
+    }
+  }
+}
