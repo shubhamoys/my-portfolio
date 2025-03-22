@@ -14,7 +14,7 @@ export default function About() {
             src="/assets/images/about-section-image.svg"
             width={24}
             height={24}
-            alt=""
+            alt="About Section Image"
           />
         </div>
 

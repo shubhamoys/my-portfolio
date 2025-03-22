@@ -67,7 +67,7 @@ export default function Hero() {
           src="/assets/images/hero-image.svg"
           width={24}
           height={24}
-          alt=""
+          alt="Hero Image"
         />
       </div>
     </div>
