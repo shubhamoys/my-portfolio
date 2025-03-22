@@ -1,0 +1,78 @@
+@import "@/styles/mixin.scss";
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: 12rem 10rem;
+
+  @include lt-lg {
+    padding-inline: 5rem;
+  }
+
+  @include lt-md {
+    padding-block: 8rem;
+  }
+
+  @include lt-sm {
+    padding: 8rem 2rem;
+    flex-direction: column-reverse;
+    gap: 6rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 6rem;
+
+    .description {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 1rem;
+      max-width: 98rem;
+
+      h1 {
+        span {
+          color: var(--primary);
+        }
+      }
+
+      p {
+        color: var(--dark-300);
+      }
+    }
+
+    .address {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      color: var(--dark-300);
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+
+      .socialIcon {
+        width: 4rem;
+        height: auto;
+      }
+    }
+  }
+
+  .image {
+    img {
+      height: 50rem;
+      width: auto;
+    }
+  }
+}

@@ -1,12 +1,12 @@
 "use client";
 
+import IconButton from "@/components/general/icon-button/icon-button";
+import { NAV_LINKS } from "@/lib/data";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "./header.module.scss";
-import { NAV_LINKS } from "@/lib/data";
-import IconButton from "@/components/general/icon-button/icon-button";
 
 interface HeaderProps {
   isDrawerOpen: boolean;
@@ -64,15 +64,11 @@ export default function Header({ isDrawerOpen, toggleDrawer }: HeaderProps) {
 
   return (
     <header className={styles.header}>
-      {/* <div className={styles.logo}>
-        <Image src="/assets/logos/logo.svg" width={24} height={24} alt="" />
-      </div> */}
-
-      {/* <Link href="/" className="h3">
+      <Link href="/" className="h3">
         {"{SS}"}
-      </Link> */}
+      </Link>
 
-      <h3>{"{SS}"}</h3>
+      {/* <h3>{"{SS}"}</h3> */}
 
       {/* Desktop Navigation */}
       <div className={styles.navWrapper}>
