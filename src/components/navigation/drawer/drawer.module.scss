@@ -1,0 +1,94 @@
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -100%; // Initially hidden
+  width: 75%;
+  max-width: 320px;
+  height: 100vh;
+  background-color: var(--light);
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  transition: right 0.3s ease-in-out;
+  pointer-events: auto; // Enable pointer events
+
+  &.open {
+    right: 0; // Slide in when open
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    border-bottom: 1px solid var(--dark-800);
+
+    .logo {
+      width: 66px;
+      height: auto;
+      fill: red;
+    }
+
+    .closeIcon {
+      height: 4rem;
+      width: auto;
+    }
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    border-bottom: 1px solid var(--dark-800);
+
+    a {
+      color: var(--dark);
+      text-decoration: none;
+
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
+
+  .actions {
+    padding: 2rem;
+    border-bottom: 1px solid var(--dark-800);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    .themeSwitch {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      color: var(--dark-300);
+
+      .themeIcon {
+        height: 4rem;
+        width: auto;
+      }
+    }
+
+    .download {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      padding-block: 1rem;
+      border-radius: 1.5rem;
+      background-color: var(--secondary);
+      color: var(--button-text);
+
+      &:hover {
+        transform: none;
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+}

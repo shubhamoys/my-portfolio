@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.scss";
+import { ClientSideWrapper } from "@/lib/client-side-wrapperr";
+import { Providers } from "@/lib/providers";
 import "@/styles/variables.scss";
-import Header from "@/components/layouts/header/header";
+import type { Metadata } from "next";
+import "./globals.scss";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -26,26 +26,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <ClientSideWrapper>{children}</ClientSideWrapper>
+        <Providers>
+          <ClientSideWrapper>{children}</ClientSideWrapper>
+        </Providers>
       </body>
     </html>
-  );
-}
-
-function ClientSideWrapper({ children }: { children: React.ReactNode }) {
-  "use client";
-
-  return (
-    <>
-      <section id="header">
-        <Header />
-      </section>
-
-      <section id="main">
-        <main>{children}</main>
-      </section>
-    </>
   );
 }

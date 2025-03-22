@@ -20,6 +20,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.no-scroll {
+  overflow: hidden; // Prevent scrolling
+  height: 100%; // Ensure the page doesn't scroll vertically
+  pointer-events: none;
+}
+
+.blurred {
+  filter: blur(4px);
+  transition: filter 0.3s ease;
+  // pointer-events: none; // Prevents interaction with blurred content
+}
+
 h1,
 .h1 {
   @include h1;
@@ -93,8 +105,14 @@ button {
   width: 100%;
   top: 0;
   position: sticky;
-  box-shadow: var(--shadow-md);
+  // box-shadow: var(--shadow-md);
   backdrop-filter: blur(10px);
+  transition: border-bottom 0.3s ease; // Add smooth transition
+  border-bottom: 1px solid transparent; // Start with transparent border
+
+  &.scrolled {
+    border-bottom: 1px solid var(--dark-800); // Show border when scrolled
+  }
 }
 
 .height {
