@@ -103,7 +103,6 @@ button {
   width: 100%;
   top: 0;
   position: sticky;
-  // box-shadow: var(--shadow-md);
   backdrop-filter: blur(10px);
   transition: border-bottom 0.3s ease; // Add smooth transition
   border-bottom: 1px solid transparent; // Start with transparent border
@@ -124,6 +123,4 @@ button {
 
 #experience {
   background-color: var(--dark-900);
-
-  height: 100vh;
 }

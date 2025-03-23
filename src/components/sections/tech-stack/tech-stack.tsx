@@ -28,6 +28,7 @@ export default function TechStack() {
     // Otherwise use the default logo
     return tech.logo;
   };
+
   return (
     <div>
       <div className={styles.container}>

@@ -39,6 +39,26 @@ export default function Header({ isDrawerOpen, toggleDrawer }: HeaderProps) {
     setMounted(true);
   }, []);
 
+  const handleResumeDownload = () => {
+    // Create a link element
+    const link = document.createElement("a");
+
+    // Set the href to the resume file path
+    link.href = "/assets/files/resume.pdf";
+
+    // Set the download attribute to suggest a filename
+    link.download = "Shubhamoy_Sarker_Resume.pdf";
+
+    // Append to the document
+    document.body.appendChild(link);
+
+    // Trigger the download
+    link.click();
+
+    // Clean up
+    document.body.removeChild(link);
+  };
+
   if (!mounted) {
     // Render a placeholder header to prevent layout shift
     return (
@@ -92,7 +112,7 @@ export default function Header({ isDrawerOpen, toggleDrawer }: HeaderProps) {
             imageClassName={styles.themeIcon}
           />
 
-          <button className={styles.download}>
+          <button className={styles.download} onClick={handleResumeDownload}>
             <span className="body2-medium">Resume</span>
 
             <Image

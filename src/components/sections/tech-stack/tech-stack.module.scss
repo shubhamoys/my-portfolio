@@ -50,9 +50,13 @@
     display: grid;
     justify-content: space-between;
     align-items: center;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     width: 100%;
     gap: 6rem;
+
+    @include lt-lg {
+      grid-template-columns: repeat(6, 1fr);
+    }
 
     @include lt-md {
       grid-template-columns: repeat(4, 1fr);
