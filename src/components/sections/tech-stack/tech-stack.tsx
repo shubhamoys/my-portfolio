@@ -5,6 +5,7 @@ import styles from "./tech-stack.module.scss";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { TechDetails } from "@/lib/types";
 
 export default function TechStack() {
   const { theme } = useTheme();
@@ -16,7 +17,7 @@ export default function TechStack() {
   }, []);
 
   // Function to determine which logo to use based on theme
-  const getLogoSrc = (tech: any) => {
+  const getLogoSrc = (tech: TechDetails) => {
     if (!mounted) return tech.logo; // Default during SSR
 
     // If dark theme is active and a dark theme logo exists, use it
