@@ -18,6 +18,7 @@
   --dark-900: #f9fafb;
 
   --button-text: var(--light);
+  --experience-card-background: var(--light);
 
   --shadow-md: 0px 4px 3px 0px rgba(13, 19, 33, 0.07),
     0px 2px 2px 0px rgba(13, 19, 33, 0.06);
@@ -44,4 +45,13 @@ html.dark {
   --dark-900: #111827;
 
   --button-text: var(--dark);
+  --experience-card-background: var(--dark-800);
+
+  --shadow-md: 0px 4px 3px 0px rgba(0, 0, 0, 0.07),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.06);
+
+  --shadow-md: 0px 4px 3px 0px rgba(0, 0, 0, 0.07),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.06);
+
+  --shadow-2xl: 0px 25px 25px 0px rgba(0, 0, 0, 0.15);
 }

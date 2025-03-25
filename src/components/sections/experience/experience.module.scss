@@ -20,17 +20,135 @@
 
   @include lt-sm {
     padding: 8rem 2rem;
-    // flex-direction: column-reverse;
-    // gap: 6rem;
   }
 
-  .sectionTitle {
-    background-color: var(--primary);
-    border-radius: 1.5rem;
-    padding: 0.5rem 2.5rem;
+  .sectionHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    .sectionTitle {
+      background-color: var(--primary);
+      border-radius: 1.5rem;
+      padding: 0.5rem 2.5rem;
+      width: auto;
+
+      span {
+        color: var(--light);
+      }
+    }
 
     span {
-      color: var(--light);
+      color: var(--dark-300);
+      text-align: center;
+    }
+  }
+
+  .experiences {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+
+    .experience {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 6rem;
+      background-color: var(--experience-card-background);
+      padding: 4rem;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-md);
+
+      @include lt-md {
+        gap: 4rem;
+      }
+
+      @media only screen and (max-width: 768px) {
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .experienceLogo {
+        width: 24rem;
+        height: auto;
+
+        @include lt-lg {
+          width: 20rem;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .experienceContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 2rem;
+        width: 48rem;
+
+        @include lt-lg {
+          width: 45rem;
+        }
+
+        @include lt-md {
+          width: auto;
+        }
+
+        @media only screen and (max-width: 768px) {
+          width: 100%;
+        }
+
+        .position {
+          @include subtitle-semi-bold;
+        }
+
+        .summary {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 2rem;
+          @include body2-normal;
+          color: var(--dark-200);
+
+          @media only screen and (max-width: 768px) {
+            gap: 1rem;
+          }
+        }
+      }
+
+      .experienceDuration {
+        width: 24rem;
+        @include body2-normal;
+        color: var(--dark-200);
+
+        @include lt-lg {
+          width: 20rem;
+        }
+
+        @media only screen and (max-width: 768px) {
+          display: none;
+        }
+      }
+
+      .experienceDurationSmall {
+        width: 20rem;
+        @include body2-normal;
+        color: var(--dark-200);
+        display: none;
+
+        @media only screen and (max-width: 768px) {
+          display: block;
+        }
+      }
     }
   }
 }

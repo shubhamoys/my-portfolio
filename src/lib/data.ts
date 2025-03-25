@@ -1,5 +1,5 @@
 import { GithubIcon, GmailIcon, LinkedInIcon } from "./svg-icons";
-import { TechDetails } from "./types";
+import { ExperienceDetails, TechDetails } from "./types";
 
 export const NAV_LINKS = [
   {
@@ -95,11 +95,11 @@ export const TECHNOLOGIES: TechDetails[] = [
     logo: "/assets/tech-logos/react-logo.svg",
     url: "https://react.dev/",
   },
-  {
-    label: "Vue.js",
-    logo: "/assets/tech-logos/vuejs-logo.svg",
-    url: "https://vuejs.org/",
-  },
+  // {
+  //   label: "Vue.js",
+  //   logo: "/assets/tech-logos/vuejs-logo.svg",
+  //   url: "https://vuejs.org/",
+  // },
   {
     label: "Next.js",
     logo: "/assets/tech-logos/nextjs-logo.svg",
@@ -110,12 +110,12 @@ export const TECHNOLOGIES: TechDetails[] = [
     logo: "/assets/tech-logos/ionic-logo.svg",
     url: "https://ionicframework.com/",
   },
-  {
-    label: "Quasar",
-    logo: "/assets/tech-logos/quasar-logo.svg",
-    darkThemeLogo: "/assets/tech-logos/quasar-logo-dark-theme.svg",
-    url: "https://quasar.dev/",
-  },
+  // {
+  //   label: "Quasar",
+  //   logo: "/assets/tech-logos/quasar-logo.svg",
+  //   darkThemeLogo: "/assets/tech-logos/quasar-logo-dark-theme.svg",
+  //   url: "https://quasar.dev/",
+  // },
   {
     label: "Flutter",
     logo: "/assets/tech-logos/flutter-logo.svg",
@@ -130,5 +130,32 @@ export const TECHNOLOGIES: TechDetails[] = [
     label: "Git",
     logo: "/assets/tech-logos/git-logo.svg",
     url: "https://git-scm.com/",
+  },
+];
+
+export const EXPERIENCES: ExperienceDetails[] = [
+  {
+    logo: "/assets/logos/technowebs-logo.svg",
+    logoAlt: "Technowebs logo",
+    position: "Full Stack Developer",
+    startDate: new Date(2024, 7),
+    currentlyWorkHere: true,
+    summary: [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    ],
+  },
+  {
+    logo: "/assets/logos/fordel-logo.svg",
+    darkThemeLogo: "/assets/logos/fordel-logo-dark-theme.svg",
+    logoAlt: "Fordel Studios logo",
+    position: "Full Stack Developer",
+    startDate: new Date(2023, 0),
+    endDate: new Date(2024, 5),
+    summary: [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    ],
   },
 ];

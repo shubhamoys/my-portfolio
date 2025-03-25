@@ -21,14 +21,30 @@ export default function Drawer({ isOpen, onClose }: DrawerProps) {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
-  const downloadResume = () => {
-    console.log("Downloading Resume...");
-  };
-
   // Ensure the component is mounted before rendering (to avoid hydration mismatch)
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const handleResumeDownload = () => {
+    // Create a link element
+    const link = document.createElement("a");
+
+    // Set the href to the resume file path
+    link.href = "/assets/files/resume.pdf";
+
+    // Set the download attribute to suggest a filename
+    link.download = "Shubhamoy_Sarker_Resume.pdf";
+
+    // Append to the document
+    document.body.appendChild(link);
+
+    // Trigger the download
+    link.click();
+
+    // Clean up
+    document.body.removeChild(link);
+  };
 
   if (!mounted) {
     // Render a placeholder header to prevent layout shift
@@ -92,7 +108,7 @@ export default function Drawer({ isOpen, onClose }: DrawerProps) {
             />
           </div>
 
-          <button className={styles.download} onClick={downloadResume}>
+          <button className={styles.download} onClick={handleResumeDownload}>
             <span className="body2-medium">Resume</span>
 
             <Image
