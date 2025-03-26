@@ -4,6 +4,7 @@ import SvgIconButton from "@/components/general/svg-icon-button/svg-icon-button"
 import { SOCIAL_LINKS } from "@/lib/data";
 import Image from "next/image";
 import styles from "./hero.module.scss";
+import Typical from "react-typical";
 
 export default function Hero() {
   return (
@@ -11,19 +12,22 @@ export default function Hero() {
       <div className={styles.content}>
         <div className={styles.description}>
           <h1>
-            Hi, I&apos;m <span>Shubhamoy</span>
+            Hi, I&apos;m <span>Shubhamoy👋</span>
           </h1>
 
-          <p className="body2-normal">
-            A Passionate Full Stack Software Developer with 1.5 years of
-            experience in modern web technologies like Typescript, Next.js,
-            Nest.js, MongoDB and more.
-          </p>
-
-          <p className="body2-normal">
-            B.Tech in Computer Science | Always eager to learn new trends and
-            technologies
-          </p>
+          <h2>
+            <Typical
+              steps={[
+                "Turning coffee into code.",
+                2000,
+                "Building the web, one bug at a time.",
+                2000,
+              ]}
+              loop={Infinity}
+              wrapper="span"
+              className="h2"
+            />
+          </h2>
         </div>
 
         <div className={styles.address}>
