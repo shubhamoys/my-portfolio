@@ -29,9 +29,7 @@ export default function Contact() {
         </div>
 
         <span className="subtitle-normal">
-          I&apos;m always open to discussing new projects, creative ideas, or
-          opportunities to be part of your vision. Feel free to reach out to me
-          via email or through the contact form below.
+          Drop me a message—I'll get back faster than a well-optimized API! 📩
         </span>
       </div>
 
@@ -159,9 +157,7 @@ export default function Contact() {
       </div>
 
       <div className={styles.sectionFooter}>
-        <span className="body2-normal">
-          You can follow me on these platforms
-        </span>
+        <span className="body2-normal">Let&apos;s stay connected!</span>
 
         <div className={styles.socialsIcons}>
           <span

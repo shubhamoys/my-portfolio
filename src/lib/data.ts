@@ -86,6 +86,16 @@ export const TECHNOLOGIES: TechDetails[] = [
     url: "https://laravel.com/",
   },
   {
+    label: "MongoDB",
+    logo: "/assets/tech-logos/mongodb-logo.svg",
+    url: "https://www.mongodb.com/",
+  },
+  {
+    label: "MariaDB",
+    logo: "/assets/tech-logos/mariadb-logo.svg",
+    url: "https://mariadb.org/",
+  },
+  {
     label: "Angular",
     logo: "/assets/tech-logos/angular-logo.svg",
     url: "https://angular.dev/",
@@ -95,11 +105,11 @@ export const TECHNOLOGIES: TechDetails[] = [
     logo: "/assets/tech-logos/react-logo.svg",
     url: "https://react.dev/",
   },
-  // {
-  //   label: "Vue.js",
-  //   logo: "/assets/tech-logos/vuejs-logo.svg",
-  //   url: "https://vuejs.org/",
-  // },
+  {
+    label: "Vue.js",
+    logo: "/assets/tech-logos/vuejs-logo.svg",
+    url: "https://vuejs.org/",
+  },
   {
     label: "Next.js",
     logo: "/assets/tech-logos/nextjs-logo.svg",
@@ -110,19 +120,19 @@ export const TECHNOLOGIES: TechDetails[] = [
     logo: "/assets/tech-logos/ionic-logo.svg",
     url: "https://ionicframework.com/",
   },
-  // {
-  //   label: "Quasar",
-  //   logo: "/assets/tech-logos/quasar-logo.svg",
-  //   darkThemeLogo: "/assets/tech-logos/quasar-logo-dark-theme.svg",
-  //   url: "https://quasar.dev/",
-  // },
+  {
+    label: "Quasar",
+    logo: "/assets/tech-logos/quasar-logo.svg",
+    darkThemeLogo: "/assets/tech-logos/quasar-logo-dark-theme.svg",
+    url: "https://quasar.dev/",
+  },
   {
     label: "Flutter",
     logo: "/assets/tech-logos/flutter-logo.svg",
     url: "https://flutter.dev/",
   },
   {
-    label: "Sass",
+    label: "Sass/Scss",
     logo: "/assets/tech-logos/sass-logo.svg",
     url: "https://sass-lang.com/",
   },
@@ -141,9 +151,9 @@ export const EXPERIENCES: ExperienceDetails[] = [
     startDate: new Date(2024, 7),
     currentlyWorkHere: true,
     summary: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Building enterprise-level full-stack applications with Laravel, MariaDB, Vue.js, and Quasar.",
+      "Ensuring performance & scalability in complex projects.",
+      "Mentoring juniors, guiding them through best practices and development challenges.",
     ],
   },
   {
@@ -154,8 +164,9 @@ export const EXPERIENCES: ExperienceDetails[] = [
     startDate: new Date(2023, 0),
     endDate: new Date(2024, 5),
     summary: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Built and maintained full-stack apps with NestJS, MongoDB, Angular, and Ionic React.",
+      "Designed scalable backend architectures for new projects.",
+      "Assisted in planning and task distribution for smoother workflows.",
     ],
   },
 ];

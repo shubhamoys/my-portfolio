@@ -42,7 +42,7 @@ export default function Experience() {
         </div>
 
         <span className="subtitle-normal">
-          Here is a quick summary of my professional journey so far.
+          A Quick Look at My Developer Journey 🚀
         </span>
       </div>
 

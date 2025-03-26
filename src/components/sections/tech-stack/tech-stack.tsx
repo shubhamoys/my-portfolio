@@ -38,7 +38,7 @@ export default function TechStack() {
           </div>
 
           <span className="subtitle-normal">
-            Here are the languages, frameworks, and tools I use.
+            My Go-To Tech Stack for Building Cool Stuff 🛠️
           </span>
         </div>
 
