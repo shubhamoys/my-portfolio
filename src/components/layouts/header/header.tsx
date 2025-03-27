@@ -63,32 +63,29 @@ export default function Header({ isDrawerOpen, toggleDrawer }: HeaderProps) {
     // Render a placeholder header to prevent layout shift
     return (
       <header className={styles.header}>
-        {/* <div className={styles.logo}>
-          <Image src="/assets/logos/logo.svg" width={24} height={24} alt="" />
-        </div> */}
-
         <h3>{"{SS}"}</h3>
-
-        {/* <div className={styles.navWrapper}>
-          <nav>
-            {NAV_LINKS.map((link, index) => (
-              <Link key={index} href={link.href} className="body2-medium">
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-        </div> */}
       </header>
     );
   }
 
   return (
     <header className={styles.header}>
-      <Link href="/" className="h3">
+      <Link
+        href="/"
+        className="h3"
+        onClick={(e) => {
+          e.preventDefault(); // Prevent default navigation
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth", // Enable smooth scrolling
+          });
+
+          // Update the URL to "/"
+          window.history.pushState(null, "", "/");
+        }}
+      >
         {"{SS}"}
       </Link>
-
-      {/* <h3>{"{SS}"}</h3> */}
 
       {/* Desktop Navigation */}
       <div className={styles.navWrapper}>

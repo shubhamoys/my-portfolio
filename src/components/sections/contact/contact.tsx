@@ -29,7 +29,8 @@ export default function Contact() {
         </div>
 
         <span className="subtitle-normal">
-          Drop me a message—I'll get back faster than a well-optimized API! 📩
+          Drop me a message—I&apos;ll get back faster than a well-optimized API!
+          📩
         </span>
       </div>
 

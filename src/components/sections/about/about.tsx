@@ -4,10 +4,6 @@ import styles from "./about.module.scss";
 export default function About() {
   return (
     <div className={styles.container}>
-      {/* <div className={styles.sectionTitle}>
-        <span className="body3-medium">About Me</span>
-      </div> */}
-
       <div className={styles.sectionHeader}>
         <div className={styles.sectionTitle}>
           <span className="body3-medium">About Me</span>
@@ -29,43 +25,16 @@ export default function About() {
         </div>
 
         <div className={styles.content}>
-          {/* <h3 className={styles.tertiary}>
-            Here&apos;s a Small Introduction of a Code-Obsessed Night Owl 🦉
-          </h3> */}
-
           <div className={styles.description}>
-            {/* <p className="body2-normal">
-              Hi, I&apos;m Shubhamoy Sarker, a passionate Full Stack Software
-              Developer with 1.5 years of experience in building dynamic and
-              scalable web applications. I hold a B.Tech degree in Computer
-              Science and have a strong foundation in both frontend and backend
-              development.
-            </p>
-
-            <p className="body2-normal">
-              Throughout my career, I&apos;ve worked with a variety of modern
-              technologies, including HTML5, CSS3, JavaScript, TypeScript, PHP,
-              ExpressJS, NestJS, Laravel, Angular, ReactJS, NextJS, Ionic,
-              VueJS, Quasar, MongoDB, MySQL, SASS, Tailwind, Bootstrap, and Git.
-              My expertise lies in creating responsive and user-friendly
-              interfaces, as well as developing robust server-side applications.
-            </p>
-
-            <p className="body2-normal">
-              I&apos;m an avid learner, always exploring new technologies and
-              keeping up with the latest industry trends. Recently, I&apos;ve
-              taken an interest in UI design, using Figma to bring creative
-              ideas to life. When I&apos;m not coding, you&apos;ll find me
-              enjoying my hobby of playing games.
-            </p> */}
-
             <p className="body2-normal">
               👋 <strong>Hi, I&apos;m Shubhamoy</strong>—a full stack developer
               on an endless quest for the mythical &apos;perfect&apos; code.
               While perfection may be elusive, clean code and elegant solutions
-              keep me going. I thrive on <strong>problem-solving</strong> 🧠,
-              tackling challenges head-on, and adding a touch of creativity 🎨
-              to everything I build.
+              keep me going. 💻 P.S. There&apos;s something oddly satisfying
+              about turning complex problems into elegant solutions—
+              <strong>
+                until I realize the problem is my own code at 2 AM 🌙.
+              </strong>
             </p>
 
             <p className="body2-normal">
@@ -82,14 +51,6 @@ export default function About() {
                 When I&apos;m not writing code, I&apos;m probably refactoring it
               </strong>
               … because past me never writes code as well as present me.
-            </p>
-
-            <p className="body2-normal">
-              <strong>
-                🌙💻 P.S. There&apos;s something oddly satisfying about turning
-                complex problems into elegant solutions—until I realize the
-                problem is my own code at 2 AM.
-              </strong>
             </p>
           </div>
         </div>
