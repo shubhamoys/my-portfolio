@@ -7,7 +7,7 @@ import "./globals.scss";
 export const metadata: Metadata = {
   title: "Shubhamoy Sarker | Full Stack developer from Siliguri, India",
   description:
-    "Full stack developer crafting scalable backends and seamless user experiences.",
+    "Full Stack developer crafting scalable backends and seamless user experiences.",
   keywords: [
     "Frontend Developer",
     "Full Stack Developer",
