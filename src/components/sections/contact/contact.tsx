@@ -25,7 +25,7 @@ export default function Contact() {
     <div className={styles.container}>
       <div className={styles.sectionHeader}>
         <div className={styles.sectionTitle}>
-          <span className="body3-medium">Conatct Me</span>
+          <span className="body3-medium">Contact Me</span>
         </div>
 
         <span className="subtitle-normal">

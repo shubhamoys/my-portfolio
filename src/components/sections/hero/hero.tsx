@@ -12,7 +12,7 @@ export default function Hero() {
       <div className={styles.content}>
         <div className={styles.description}>
           <h1>
-            Hi, I&apos;m <span>Shubhamoy👋</span>
+            Hi, I&apos;m <span>Shubhamoy 👋</span>
           </h1>
 
           <h2>

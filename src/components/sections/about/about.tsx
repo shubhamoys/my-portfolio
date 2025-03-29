@@ -33,7 +33,7 @@ export default function About() {
               keep me going. 💻 P.S. There&apos;s something oddly satisfying
               about turning complex problems into elegant solutions—
               <strong>
-                until I realize the problem is my own code at 2 AM 🌙.
+                until, I realize the problem is my own code at 2 AM 🌙.
               </strong>
             </p>
 
