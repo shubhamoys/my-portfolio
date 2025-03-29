@@ -58,9 +58,22 @@ export default function Drawer({ isOpen, onClose }: DrawerProps) {
       {/* Drawer */}
       <div className={`${styles.drawer} ${isOpen ? styles.open : ""}`}>
         <div className={styles.header}>
-          {/* <h3>{"{SS}"}</h3> */}
+          <Link
+            href="/"
+            className="h3"
+            onClick={(e) => {
+              e.preventDefault(); // Prevent default navigation
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth", // Enable smooth scrolling
+              });
 
-          <Link href="/" className="h3" onClick={onClose}>
+              // Update the URL to "/"
+              window.history.pushState(null, "", "/");
+
+              onClose(); // Close the drawer
+            }}
+          >
             {"{SS}"}
           </Link>
 
@@ -72,7 +85,7 @@ export default function Drawer({ isOpen, onClose }: DrawerProps) {
             }
             width={24}
             height={24}
-            alt=""
+            alt="Toggle Theme"
             className={styles.closeIcon}
             onClick={onClose}
           />
