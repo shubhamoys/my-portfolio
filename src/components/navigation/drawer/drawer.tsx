@@ -31,10 +31,10 @@ export default function Drawer({ isOpen, onClose }: DrawerProps) {
     const link = document.createElement("a");
 
     // Set the href to the resume file path
-    link.href = "/assets/files/resume.pdf";
+    link.href = "/assets/files/Shubhamoy_Résumé.pdf";
 
     // Set the download attribute to suggest a filename
-    link.download = "Shubhamoy_Sarker_Resume.pdf";
+    link.download = "Shubhamoy_Résumé.pdf";
 
     // Append to the document
     document.body.appendChild(link);
