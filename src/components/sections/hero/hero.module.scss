@@ -84,24 +84,32 @@
   -webkit-text-fill-color: transparent;
 }
 
-.typewriterBox {
-  font-size: 24px;
+.tagline {
+  font-size: 20px;
   font-weight: 500;
-  color: var(--dark-300);
-  min-height: 36px;
+  color: var(--dark-200);
   line-height: 1.5;
+  max-width: 420px;
 
   @include lt-md {
-    font-size: 18px;
-    min-height: 28px;
+    font-size: 17px;
   }
 }
 
-.dynamicText {
-  color: var(--primary);
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  padding-left: 18px;
+  margin: 0;
+  list-style: disc;
+}
+
+.techItem {
+  font-size: 14px;
   font-weight: 600;
-  border-bottom: 2px solid var(--primary);
-  padding-bottom: 2px;
+  color: var(--primary);
+  line-height: 1.8;
 }
 
 .address {

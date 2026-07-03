@@ -2,9 +2,10 @@
 
 import { SOCIAL_LINKS } from "@/lib/data";
 import styles from "./hero.module.scss";
-import CustomTypical from "@/components/ui/custom-typical";
 import BentoCard from "@/components/ui/bento-card";
 import { MapPin } from "lucide-react";
+
+const TECH_STACK = ["React", "Next.js", "NestJS", "PostgreSQL"];
 
 export default function Hero() {
   const handleSocialClick = (url: string) => {
@@ -25,17 +26,19 @@ export default function Hero() {
             Hi, I&apos;m <span className={styles.gradientText}>Shubhamoy</span>
           </h1>
 
-          <div className={styles.typewriterBox}>
-            <span className={styles.staticText}>I enjoy </span>
-            <CustomTypical
-              steps={[
-                "building scalable backends. ⚙️",
-                "crafting interactive user experiences. 💻",
-                "turning caffeine into functional code. ☕",
-              ]}
-              className={styles.dynamicText}
-            />
-          </div>
+          {/* Static tagline */}
+          <p className={styles.tagline}>
+            Building software with performance and scalability in mind.
+          </p>
+
+          {/* Tech stack list */}
+          <ul className={styles.techList}>
+            {TECH_STACK.map((tech) => (
+              <li key={tech} className={styles.techItem}>
+                {tech}
+              </li>
+            ))}
+          </ul>
 
           <div className={styles.address}>
             <MapPin size={18} className={styles.pinIcon} />
@@ -73,7 +76,7 @@ export default function Hero() {
         <div className={styles.editorBody}>
           <pre className="font-mono">
             <code>
-              <span className={styles.jsonKeyword}>const</span> developer = &#123;
+              <span className={styles.jsonKeyword}>const </span> developer = &#123;
               {"\n  "}
               <span className={styles.jsonKey}>name</span>:{" "}
               <span className={styles.jsonString}>&quot;Shubhamoy Sarker&quot;</span>,
@@ -92,7 +95,7 @@ export default function Hero() {
               {"\n  "}],
               {"\n  "}
               <span className={styles.jsonKey}>passion</span>:{" "}
-              <span className={styles.jsonString}>&quot;Clean Code & Scalable Architecture&quot;</span>,
+              <span className={styles.jsonString}>&quot;Clean Code &amp; Scalable Architecture&quot;</span>,
               {"\n  "}
               <span className={styles.jsonKey}>nightOwl</span>: <span className={styles.jsonBoolean}>true</span>,
               {"\n  "}
