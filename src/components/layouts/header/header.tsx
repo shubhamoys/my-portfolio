@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import ThemeToggle from "@/components/ui/theme-toggle";
 import styles from "./header.module.scss";
 import { Download } from "lucide-react";
 
@@ -31,8 +30,6 @@ export default function Header() {
       </Link>
 
       <div className={styles.actions}>
-        <ThemeToggle />
-
         <button className={styles.downloadBtn} onClick={handleResumeDownload}>
           <span>Resume</span>
           <Download size={16} />

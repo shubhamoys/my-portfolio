@@ -30,11 +30,8 @@ export default function Hero() {
             <CustomTypical
               steps={[
                 "building scalable backends. ⚙️",
-                2000,
                 "crafting interactive user experiences. 💻",
-                2000,
                 "turning caffeine into functional code. ☕",
-                2000,
               ]}
               className={styles.dynamicText}
             />

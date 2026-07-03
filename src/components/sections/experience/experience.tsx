@@ -3,8 +3,6 @@
 import { EXPERIENCES } from "@/lib/data";
 import styles from "./experience.module.scss";
 import Image from "next/image";
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 import { ExperienceDetails } from "@/lib/types";
 import BentoCard from "@/components/ui/bento-card";
 import { Briefcase, Calendar } from "lucide-react";
@@ -15,19 +13,8 @@ const dateFormatOptions: Intl.DateTimeFormatOptions = {
 };
 
 export default function Experience() {
-  const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const getLogoSrc = (experience: ExperienceDetails) => {
-    if (!mounted) return experience.logo;
-    if (theme === "dark" && experience.darkThemeLogo) {
-      return experience.darkThemeLogo;
-    }
-    return experience.logo;
+    return experience.darkThemeLogo || experience.logo;
   };
 
   const formatDate = (date: Date) => {

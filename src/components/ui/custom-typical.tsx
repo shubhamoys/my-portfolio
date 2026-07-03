@@ -3,73 +3,55 @@
 import React, { useEffect, useState } from "react";
 
 interface CustomTypicalProps {
-  steps: (string | number)[];
+  steps: string[];
+  period?: number;
   className?: string;
   wrapper?: keyof JSX.IntrinsicElements;
 }
 
 export default function CustomTypical({
   steps,
+  period = 2000,
   className = "",
   wrapper: Wrapper = "span",
 }: CustomTypicalProps) {
-  const [displayedText, setDisplayedText] = useState("");
-  const [stepIndex, setStepIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [typingSpeed, setTypingSpeed] = useState(80);
+  const [delta, setDelta] = useState(100);
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
+    const ticker = setInterval(() => {
+      tick();
+    }, delta);
 
-    // Get current item in steps (should alternate string then duration)
-    const currentItem = steps[stepIndex];
+    return () => {
+      clearInterval(ticker);
+    };
+  }, [text, delta, isDeleting, loopNum]);
 
-    if (typeof currentItem === "number") {
-      // Pause step
-      timer = setTimeout(() => {
-        setIsDeleting(true);
-        // Move to the next text step (which is index + 1)
-        const nextIndex = (stepIndex + 1) % steps.length;
-        setStepIndex(nextIndex);
-      }, currentItem);
-    } else if (typeof currentItem === "string") {
-      // Typing or Deleting text step
-      if (isDeleting) {
-        // Handle deleting character by character
-        timer = setTimeout(() => {
-          setDisplayedText((prev) => prev.slice(0, -1));
-          setTypingSpeed(40); // erase faster
-        }, typingSpeed);
+  const tick = () => {
+    const i = loopNum % steps.length;
+    const fullText = steps[i];
+    const updatedText = isDeleting
+      ? fullText.substring(0, text.length - 1)
+      : fullText.substring(0, text.length + 1);
 
-        if (displayedText === "") {
-          setIsDeleting(false);
-          // Go to next string step
-          const nextIndex = (stepIndex + 1) % steps.length;
-          setStepIndex(nextIndex);
-        }
-      } else {
-        // Handle typing character by character
-        timer = setTimeout(() => {
-          const nextChar = currentItem.charAt(displayedText.length);
-          setDisplayedText((prev) => prev + nextChar);
-          setTypingSpeed(100 - Math.random() * 40); // variable speed
-        }, typingSpeed);
+    setText(updatedText);
 
-        if (displayedText === currentItem) {
-          // If we fully typed, check if the next step is a pause (number)
-          const nextStep = steps[(stepIndex + 1) % steps.length];
-          if (typeof nextStep === "number") {
-            setStepIndex((stepIndex + 1) % steps.length);
-          } else {
-            // No pause, delete immediately
-            setIsDeleting(true);
-          }
-        }
-      }
+    if (isDeleting) {
+      setDelta(50); // Erase faster
     }
 
-    return () => clearTimeout(timer);
-  }, [displayedText, stepIndex, isDeleting, steps, typingSpeed]);
+    if (!isDeleting && updatedText === fullText) {
+      setIsDeleting(true);
+      setDelta(period); // Pause after typing
+    } else if (isDeleting && updatedText === "") {
+      setIsDeleting(false);
+      setLoopNum((prev) => prev + 1);
+      setDelta(100); // Reset speed for next text
+    }
+  };
 
-  return <Wrapper className={className}>{displayedText}</Wrapper>;
+  return <Wrapper className={className}>{text}</Wrapper>;
 }
