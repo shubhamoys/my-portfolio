@@ -1,79 +1,111 @@
 "use client";
 
-import SvgIconButton from "@/components/general/svg-icon-button/svg-icon-button";
 import { SOCIAL_LINKS } from "@/lib/data";
-import Image from "next/image";
 import styles from "./hero.module.scss";
-import Typical from "react-typical";
+import CustomTypical from "@/components/ui/custom-typical";
+import BentoCard from "@/components/ui/bento-card";
+import { MapPin } from "lucide-react";
 
 export default function Hero() {
+  const handleSocialClick = (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        <div className={styles.description}>
-          <h1>
-            Hi, I&apos;m <span>Shubhamoy 👋</span>
+    <div className={styles.heroGrid}>
+      {/* Intro Card */}
+      <BentoCard className={styles.introCard} delay={0.1}>
+        <div className={styles.introContent}>
+          <div className={styles.badge}>
+            <span className={styles.greenPulse} />
+            Available for new opportunities
+          </div>
+
+          <h1 className={styles.title}>
+            Hi, I&apos;m <span className={styles.gradientText}>Shubhamoy</span>
           </h1>
 
-          <h2>
-            <Typical
+          <div className={styles.typewriterBox}>
+            <span className={styles.staticText}>I enjoy </span>
+            <CustomTypical
               steps={[
-                "Turning coffee into code.",
+                "building scalable backends. ⚙️",
                 2000,
-                "Building the web, one bug at a time.",
+                "crafting interactive user experiences. 💻",
+                2000,
+                "turning caffeine into functional code. ☕",
                 2000,
               ]}
-              loop={Infinity}
-              wrapper="span"
-              className="h2"
+              className={styles.dynamicText}
             />
-          </h2>
+          </div>
+
+          <div className={styles.address}>
+            <MapPin size={18} className={styles.pinIcon} />
+            <span className="body2-medium">Siliguri, West Bengal, India</span>
+          </div>
+
+          <div className={styles.socialsGroup}>
+            {SOCIAL_LINKS.map((socialLink, index) => {
+              const Icon = socialLink.icon;
+              return (
+                <button
+                  key={index}
+                  onClick={() => handleSocialClick(socialLink.url)}
+                  className={styles.socialBtn}
+                  aria-label={socialLink.label}
+                >
+                  <Icon className={styles.socialIcon} />
+                </button>
+              );
+            })}
+          </div>
         </div>
+      </BentoCard>
 
-        <div className={styles.address}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="lucide lucide-map-pin"
-          >
-            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
-            <circle cx="12" cy="10" r="3" />
-          </svg>
-
-          <span className="body2-normal">Siliguri, West Bengal, India</span>
+      {/* Editor Mockup Card */}
+      <BentoCard className={styles.editorCard} delay={0.2} hoverEffect={true}>
+        <div className={styles.editorHeader}>
+          <div className={styles.editorDots}>
+            <span className={`${styles.editorDot} ${styles.close}`} />
+            <span className={`${styles.editorDot} ${styles.minimize}`} />
+            <span className={`${styles.editorDot} ${styles.expand}`} />
+          </div>
+          <span className={styles.editorTitle}>developer.json</span>
         </div>
-
-        <div className={styles.socials}>
-          {SOCIAL_LINKS.map((socialLink, index) => {
-            const Icon = socialLink.icon;
-            return (
-              <SvgIconButton
-                key={index}
-                onClick={() => window.open(socialLink.url, "_blank")}
-                label={socialLink.label}
-              >
-                <Icon className={styles.socialIcon} />
-              </SvgIconButton>
-            );
-          })}
+        <div className={styles.editorBody}>
+          <pre className="font-mono">
+            <code>
+              <span className={styles.jsonKeyword}>const</span> developer = &#123;
+              {"\n  "}
+              <span className={styles.jsonKey}>name</span>:{" "}
+              <span className={styles.jsonString}>&quot;Shubhamoy Sarker&quot;</span>,
+              {"\n  "}
+              <span className={styles.jsonKey}>role</span>:{" "}
+              <span className={styles.jsonString}>&quot;Full Stack Developer&quot;</span>,
+              {"\n  "}
+              <span className={styles.jsonKey}>skills</span>: [
+              {"\n    "}
+              <span className={styles.jsonString}>&quot;NodeJS&quot;</span>,{" "}
+              <span className={styles.jsonString}>&quot;NestJS&quot;</span>,{" "}
+              <span className={styles.jsonString}>&quot;Laravel&quot;</span>,{" "}
+              <span className={styles.jsonString}>&quot;React&quot;</span>,{" "}
+              <span className={styles.jsonString}>&quot;Vue&quot;</span>,{" "}
+              <span className={styles.jsonString}>&quot;Quasar&quot;</span>
+              {"\n  "}],
+              {"\n  "}
+              <span className={styles.jsonKey}>passion</span>:{" "}
+              <span className={styles.jsonString}>&quot;Clean Code & Scalable Architecture&quot;</span>,
+              {"\n  "}
+              <span className={styles.jsonKey}>nightOwl</span>: <span className={styles.jsonBoolean}>true</span>,
+              {"\n  "}
+              <span className={styles.jsonKey}>coffeeToCodeRatio</span>:{" "}
+              <span className={styles.jsonNumber}>1.85</span>
+              {"\n"}&#125;;
+            </code>
+          </pre>
         </div>
-      </div>
-
-      <div className={styles.image}>
-        <Image
-          src="/assets/images/hero-image.svg"
-          width={24}
-          height={24}
-          alt="Hero Image"
-        />
-      </div>
+      </BentoCard>
     </div>
   );
 }

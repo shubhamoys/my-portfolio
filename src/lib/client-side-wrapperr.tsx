@@ -1,46 +1,25 @@
 "use client";
 
-import Drawer from "@/components/navigation/drawer/drawer";
 import Header from "@/components/layouts/header/header";
+import SidebarDock from "@/components/navigation/sidebar-dock";
+import Loader from "@/components/layouts/loader";
 import { useEffect, useState } from "react";
 import Footer from "@/components/layouts/footer/footer";
+import { AnimatePresence } from "framer-motion";
 
 export function ClientSideWrapper({ children }: { children: React.ReactNode }) {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
-
-  const toggleDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-  };
-
-  // Add or remove the "no-scroll" class on the <html> element
-  useEffect(() => {
-    if (isDrawerOpen) {
-      document.documentElement.classList.add("no-scroll");
-    } else {
-      document.documentElement.classList.remove("no-scroll");
-    }
-
-    // Cleanup on unmount
-    return () => {
-      document.documentElement.classList.remove("no-scroll");
-    };
-  }, [isDrawerOpen]);
 
   // Track scroll position
   useEffect(() => {
     const handleScroll = () => {
-      // Check if page is scrolled (you can adjust the threshold as needed)
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 20);
     };
 
-    // Add scroll event listener
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
 
-    // Call once to set initial state
-    handleScroll();
-
-    // Clean up
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -48,27 +27,30 @@ export function ClientSideWrapper({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <section
-        id="header"
-        className={`${isDrawerOpen ? "blurred" : ""} ${
-          isScrolled ? "scrolled" : ""
-        }`}
-      >
-        <Header isDrawerOpen={isDrawerOpen} toggleDrawer={toggleDrawer} />
-      </section>
+      {/* Entrance terminal boot loader */}
+      <AnimatePresence mode="wait">
+        {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
+      </AnimatePresence>
 
-      {/* Drawer Component */}
-      <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
+      {/* Decorative background glow blobs */}
+      <div className="bg-glow" />
+      <div className="bg-glow-2" />
 
-      {/* <section id="main" className={isDrawerOpen ? "blurred" : ""}> */}
-      <main id="main" className={isDrawerOpen ? "blurred" : ""}>
-        {children}
-      </main>
-      {/* </section> */}
+      {/* Main layout once loader is done or loading */}
+      <div style={{ visibility: isLoading ? "hidden" : "visible" }}>
+        <section id="header" className={isScrolled ? "scrolled" : ""}>
+          <Header />
+        </section>
 
-      <section id="footer" className={isDrawerOpen ? "blurred" : ""}>
-        <Footer></Footer>
-      </section>
+        {/* Floating Side Dock Navigation */}
+        <SidebarDock />
+
+        <main id="main">{children}</main>
+
+        <section id="footer">
+          <Footer />
+        </section>
+      </div>
     </>
   );
 }

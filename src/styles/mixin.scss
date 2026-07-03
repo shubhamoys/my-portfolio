@@ -46,8 +46,8 @@
 }
 
 @mixin h3-bold {
-  @include h3;
   font-weight: 700 !important;
+  @include h3;
 
   @include lt-md {
     font-weight: 700 !important;
@@ -66,8 +66,8 @@
 }
 
 @mixin subtitle-semi-bold {
-  @include subtitle-normal;
   font-weight: 600 !important;
+  @include subtitle-normal;
 
   @include lt-md {
     font-weight: 600 !important;

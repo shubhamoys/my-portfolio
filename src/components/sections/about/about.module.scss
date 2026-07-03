@@ -1,100 +1,149 @@
-@import "@/styles/mixin.scss";
+@import "@/styles/media-queries.scss";
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6rem;
-  max-width: 1440px;
-  margin-inline: auto;
-  padding: 12rem 10rem;
-
-  @include lt-lg {
-    padding-inline: 5rem;
-  }
+.aboutSection {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
 
   @include lt-md {
-    padding-block: 8rem;
+    padding: 60px 16px;
   }
+}
 
-  @include lt-sm {
-    padding: 8rem 2rem;
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 50px;
+  gap: 12px;
+}
+
+.sectionBadge {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--primary);
+  letter-spacing: 2px;
+}
+
+.sectionTitle {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -1px;
+
+  @include lt-md {
+    font-size: 30px;
   }
+}
 
-  .sectionHeader {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
+.highlight {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-    .sectionTitle {
-      background-color: var(--primary);
-      border-radius: 1.5rem;
-      padding: 0.5rem 2.5rem;
-      width: auto;
+.sectionSubtitle {
+  font-size: 16px;
+  color: var(--dark-300);
+}
 
-      span {
-        color: var(--light);
-      }
-    }
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 24px;
 
-    span {
-      color: var(--dark-300);
-      text-align: center;
-    }
+  @include lt-md {
+    grid-template-columns: 1fr;
   }
+}
 
-  .sectionBody {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 6rem;
-    width: 100%;
+.statsCard {
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+}
 
-    @media only screen and (max-width: 768px) {
-      flex-direction: column;
-    }
+.cardHeader {
+  background: rgba(30, 27, 57, 0.4);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-    .image {
-      img {
-        height: auto;
-        width: 62.5rem;
+.cardIcon {
+  color: var(--primary);
+}
 
-        @include lt-md {
-          width: 48rem;
-        }
+.cardTitle {
+  color: var(--dark-300);
+  font-family: var(--font-fira-code), monospace;
+  font-size: 12px;
+  font-weight: 500;
+}
 
-        @include lt-sm {
-          width: 43rem;
-        }
-      }
-    }
+.statsBody {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
 
-    .content {
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-      justify-content: center;
-      align-items: flex-start;
-      width: 100%;
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
 
-      .tertiary {
-        color: var(--tertiary);
-      }
+.statIcon {
+  color: var(--secondary);
+  background: rgba(79, 70, 229, 0.08);
+  padding: 10px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-      .description {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        justify-content: flex-start;
-        align-items: center;
+.statDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
 
-        p {
-          color: var(--dark-300);
-        }
-      }
-    }
+.statVal {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.statLbl {
+  font-size: 13px;
+  color: var(--dark-400);
+}
+
+.bioCard {
+  display: flex;
+  align-items: center;
+}
+
+.bioContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.paragraph {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--dark-200);
+
+  strong {
+    color: var(--dark-50);
   }
 }

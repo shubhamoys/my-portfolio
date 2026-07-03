@@ -1,97 +1,67 @@
-@import "@/styles/mixin.scss";
+@import "@/styles/media-queries.scss";
 
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 2rem 10rem;
-  max-width: 1440px;
-  margin-inline: auto;
-
-  a {
-    color: var(--dark) !important;
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-
-  .navWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-
-    nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 3rem;
-
-      a {
-        color: var(--dark-300) !important;
-
-        &:hover {
-          transform: scale(1.1);
-        }
-      }
-    }
-
-    .actions {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 3rem;
-
-      .themeIcon {
-        height: 4rem;
-        width: auto;
-
-        &:hover {
-          transform: scale(1.1);
-          cursor: pointer;
-        }
-      }
-
-      .download {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-        padding: 1rem 2rem;
-        border-radius: 1.5rem;
-        background-color: var(--secondary);
-        color: var(--button-text);
-      }
-    }
-
-    @include lt-md {
-      display: none;
-    }
-  }
-
-  .hamburgerMenu {
-    display: none;
-
-    img {
-      height: 4rem;
-      width: auto;
-    }
-
-    @include lt-md {
-      display: block;
-    }
-  }
-
-  @include lt-lg {
-    padding-inline: 5rem;
-  }
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  width: 100%;
+  height: 70px;
 
   @include lt-md {
-    padding-inline: 5rem;
+    padding: 12px 16px;
+  }
+}
+
+.logo {
+  font-family: var(--font-fira-code), monospace;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -1px;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.downloadBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: var(--accent-gradient);
+  color: var(--light);
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--glow-color);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 
   @include lt-sm {
-    padding-inline: 2rem;
+    padding: 10px 12px;
+    span {
+      display: none; /* Hide 'Resume' text on small mobile screens to prevent overflow */
+    }
   }
 }

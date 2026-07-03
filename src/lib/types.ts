@@ -17,3 +17,12 @@ export type ExperienceDetails = {
   endDate?: Date;
   summary: string[];
 };
+
+export type ProjectDetails = {
+  title: string;
+  description: string;
+  techStack: string[];
+  githubUrl?: string;
+  liveUrl?: string;
+  featured?: boolean;
+};

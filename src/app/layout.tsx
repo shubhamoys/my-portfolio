@@ -3,11 +3,24 @@ import { Providers } from "@/lib/providers";
 import "@/styles/variables.scss";
 import type { Metadata } from "next";
 import "./globals.scss";
+import { Outfit, Fira_Code } from "next/font/google";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+});
+
+const firaCode = Fira_Code({
+  subsets: ["latin"],
+  variable: "--font-fira-code",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Shubhamoy Sarker | Full Stack developer from Siliguri, India",
+  title: "Shubhamoy Sarker | Full Stack Developer",
   description:
-    "Full Stack developer crafting scalable backends and seamless user experiences.",
+    "Full Stack developer crafting scalable backends and seamless user experiences with modern bento design.",
   keywords: [
     "Frontend Developer",
     "Full Stack Developer",
@@ -23,13 +36,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html
+      lang="en"
+      className={`${outfit.variable} ${firaCode.variable}`}
+      suppressHydrationWarning
+    >
       <body>
         <Providers>
           <ClientSideWrapper>{children}</ClientSideWrapper>

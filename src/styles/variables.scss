@@ -1,57 +1,71 @@
 :root {
-  --primary: #10b981;
-  --secondary: #1e3a8a;
-  --tertiary: #b9104b;
+  --primary: #7c3aed;       /* Violet 600 */
+  --secondary: #4f46e5;     /* Indigo 600 */
+  --tertiary: #db2777;      /* Pink 600 */
+  
+  --dark: #0b0914;          /* Deep cosmic purple-black for text */
+  --light: #fbfaff;         /* Soft creamy white background */
 
-  --dark: #0d1321;
-  --light: #ffffff;
-
-  --dark-50: #111827;
-  --dark-100: #1f2937;
-  --dark-200: #374151;
-  --dark-300: #4b5563;
-  --dark-400: #6b7280;
-  --dark-500: #9ca3af;
-  --dark-600: #d1d5db;
-  --dark-700: #e5e7eb;
-  --dark-800: #f3f4f6;
-  --dark-900: #f9fafb;
+  /* Light Theme Shades (Inverted in Dark Theme) */
+  --dark-50: #0b0914;       /* Darkest */
+  --dark-100: #1c1930;
+  --dark-200: #3b3856;
+  --dark-300: #5a5775;
+  --dark-400: #797693;
+  --dark-500: #9996b1;
+  --dark-600: #b9b6cf;
+  --dark-700: #dad7ed;
+  --dark-800: #ebe9f6;
+  --dark-900: #f4f2fc;      /* Lightest */
 
   --button-text: var(--light);
   --experience-card-background: var(--light);
+  --glow-color: rgba(124, 58, 237, 0.15);
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(124, 58, 237, 0.12);
+  --accent-gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
 
-  --shadow-md: 0px 4px 3px 0px rgba(13, 19, 33, 0.07),
-    0px 2px 2px 0px rgba(13, 19, 33, 0.06);
+  --shadow-md: 0px 4px 15px 0px rgba(11, 9, 20, 0.05),
+    0px 2px 4px 0px rgba(11, 9, 20, 0.03);
 
-  --shadow-lg: 0px 4px 3px 0px rgba(13, 19, 33, 0.1),
-    0px 10px 8px 0px rgba(13, 19, 33, 0.04);
+  --shadow-lg: 0px 10px 25px -5px rgba(124, 58, 237, 0.08),
+    0px 8px 10px -6px rgba(124, 58, 237, 0.05);
 
-  --shadow-2xl: 0px 25px 25px 0px rgba(13, 19, 33, 0.15);
+  --shadow-2xl: 0px 25px 50px -12px rgba(11, 9, 20, 0.15);
 }
 
 html.dark {
-  --dark: #ffffff;
-  --light: #0d1321;
+  --primary: #a78bfa;       /* Violet 400 */
+  --secondary: #818cf8;     /* Indigo 400 */
+  --tertiary: #f472b6;      /* Pink 400 */
 
-  --dark-50: #f9fafb;
-  --dark-100: #f3f4f6;
-  --dark-200: #e5e7eb;
-  --dark-300: #d1d5db;
-  --dark-400: #9ca3af;
-  --dark-500: #6b7280;
-  --dark-600: #4b5563;
-  --dark-700: #374151;
-  --dark-800: #1f2937;
-  --dark-900: #111827;
+  --dark: #fbfaff;          /* Soft creamy white for text */
+  --light: #07050f;         /* Deep cosmic black for background */
 
-  --button-text: var(--dark);
+  /* Dark Theme Shades */
+  --dark-50: #fbfaff;       /* Lightest */
+  --dark-100: #ebe9f6;
+  --dark-200: #dad7ed;
+  --dark-300: #b9b6cf;
+  --dark-400: #9996b1;
+  --dark-500: #797693;
+  --dark-600: #5a5775;
+  --dark-700: #3b3856;
+  --dark-800: #121021;      /* Deep purple-navy card background */
+  --dark-900: #0a0914;      /* Darker background */
+
+  --button-text: var(--light);
   --experience-card-background: var(--dark-800);
+  --glow-color: rgba(167, 139, 250, 0.25);
+  --glass-bg: rgba(18, 16, 33, 0.7);
+  --glass-border: rgba(167, 139, 250, 0.15);
+  --accent-gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
 
-  --shadow-md: 0px 4px 3px 0px rgba(0, 0, 0, 0.07),
-    0px 2px 2px 0px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0px 4px 15px 0px rgba(0, 0, 0, 0.3),
+    0px 2px 4px 0px rgba(0, 0, 0, 0.2);
 
-  --shadow-md: 0px 4px 3px 0px rgba(0, 0, 0, 0.07),
-    0px 2px 2px 0px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0px 10px 25px -5px rgba(0, 0, 0, 0.4),
+    0px 8px 10px -6px rgba(0, 0, 0, 0.3);
 
-  --shadow-2xl: 0px 25px 25px 0px rgba(0, 0, 0, 0.15);
+  --shadow-2xl: 0px 25px 50px -12px rgba(0, 0, 0, 0.5);
 }

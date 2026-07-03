@@ -1,5 +1,5 @@
 import { GithubIcon, GmailIcon, LinkedInIcon } from "./svg-icons";
-import { ExperienceDetails, TechDetails } from "./types";
+import { ExperienceDetails, TechDetails, ProjectDetails } from "./types";
 
 export const NAV_LINKS = [
   {
@@ -9,6 +9,10 @@ export const NAV_LINKS = [
   {
     label: "Tech Stack",
     href: "#tech-stack",
+  },
+  {
+    label: "Projects",
+    href: "#projects",
   },
   {
     label: "Experience",
@@ -50,7 +54,7 @@ export const TECHNOLOGIES: TechDetails[] = [
     url: "https://www.typescriptlang.org/",
   },
   {
-    label: "php",
+    label: "PHP",
     logo: "/assets/tech-logos/php-logo.svg",
     url: "https://www.php.net/",
   },
@@ -168,5 +172,38 @@ export const EXPERIENCES: ExperienceDetails[] = [
       "Designed scalable backend architectures for new projects.",
       "Assisted in planning and task distribution for smoother workflows.",
     ],
+  },
+];
+
+export const PROJECTS: ProjectDetails[] = [
+  {
+    title: "EcoStore Platform",
+    description: "A production-grade e-commerce backend engine featuring secure Stripe integration, JWT auth, Redis caching, and automated invoice delivery.",
+    techStack: ["Laravel", "PHP", "MariaDB", "Redis", "Docker"],
+    githubUrl: "https://github.com/shubhamoys/ecostore-backend",
+    liveUrl: "https://ecostore.shubhamoy.dev",
+    featured: true,
+  },
+  {
+    title: "CollabBoard",
+    description: "Real-time collaborative Kanban and team board system. Synchronizes board updates instantly via WebSockets and features detailed audit trails.",
+    techStack: ["NestJS", "MongoDB", "Vue.js", "Quasar", "WebSockets"],
+    githubUrl: "https://github.com/shubhamoys/collabboard",
+    liveUrl: "https://collab.shubhamoy.dev",
+    featured: true,
+  },
+  {
+    title: "Conscrape Engine",
+    description: "High-speed concurrent web scraping engine capable of crawling thousands of pages per minute safely, using a robust retry queue and proxy rotation.",
+    techStack: ["Go", "Node.js", "MongoDB", "CLI"],
+    githubUrl: "https://github.com/shubhamoys/conscrape",
+    featured: false,
+  },
+  {
+    title: "FitLife Application",
+    description: "Hybrid mobile fitness tracking application featuring offline-first local synchronization, beautiful charts, and real-time statistics.",
+    techStack: ["React.js", "Ionic", "Express.js", "MongoDB", "Typescript"],
+    githubUrl: "https://github.com/shubhamoys/fitlife-app",
+    featured: false,
   },
 ];

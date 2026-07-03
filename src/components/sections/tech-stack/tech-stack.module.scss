@@ -1,96 +1,138 @@
-@import "@/styles/mixin.scss";
+@import "@/styles/media-queries.scss";
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6rem;
-  max-width: 1440px;
-  margin-inline: auto;
-  padding: 12rem 10rem;
-
-  @include lt-lg {
-    padding-inline: 5rem;
-  }
+.techSection {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
 
   @include lt-md {
-    padding-block: 8rem;
+    padding: 60px 16px;
   }
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 50px;
+  gap: 12px;
+}
+
+.sectionBadge {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--primary);
+  letter-spacing: 2px;
+}
+
+.sectionTitle {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -1px;
+
+  @include lt-md {
+    font-size: 30px;
+  }
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sectionSubtitle {
+  font-size: 16px;
+  color: var(--dark-300);
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
 
   @include lt-sm {
-    padding: 8rem 2rem;
+    grid-template-columns: 1fr;
   }
+}
 
-  .sectionHeader {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
+.techCard {
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+}
 
-    .sectionTitle {
-      background-color: var(--primary);
-      border-radius: 1.5rem;
-      padding: 0.5rem 2.5rem;
-      width: auto;
+.cardHeader {
+  background: rgba(30, 27, 57, 0.4);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-      span {
-        color: var(--light);
-      }
-    }
+.cardIcon {
+  color: var(--primary);
+}
 
-    span {
-      color: var(--dark-300);
-      text-align: center;
-    }
-  }
+.cardTitle {
+  color: var(--dark-300);
+  font-family: var(--font-fira-code), monospace;
+  font-size: 12px;
+  font-weight: 500;
+}
 
-  .techStack {
-    display: grid;
-    justify-content: space-between;
-    align-items: center;
-    grid-template-columns: repeat(8, 1fr);
-    width: 100%;
-    gap: 6rem;
+.cardBody {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 16px;
+}
 
-    @include lt-lg {
-      grid-template-columns: repeat(6, 1fr);
-    }
+.techItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid transparent;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
 
-    @include lt-md {
-      grid-template-columns: repeat(4, 1fr);
-    }
+  &:hover {
+    background: rgba(124, 58, 237, 0.08);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px var(--glow-color);
 
-    @include lt-sm {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .technology {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-
-      &:hover {
-        transform: scale(1.1);
-
-        @include lt-md {
-          transform: none;
-        }
-      }
-
-      img {
-        height: 8rem;
-        width: 8rem;
-        cursor: pointer;
-      }
-
-      span {
-        color: var(--dark-300);
-        cursor: pointer;
-      }
+    .techLogo {
+      transform: scale(1.1);
     }
   }
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+}
+
+.techLogo {
+  transition: transform 0.25s ease;
+  object-fit: contain;
+}
+
+.techLabel {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--dark-200);
+  text-align: center;
 }

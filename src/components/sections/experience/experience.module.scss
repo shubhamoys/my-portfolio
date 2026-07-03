@@ -1,154 +1,231 @@
-@import "@/styles/mixin.scss";
+@import "@/styles/media-queries.scss";
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6rem;
-  max-width: 1440px;
-  margin-inline: auto;
-  padding: 12rem 10rem;
-
-  @include lt-lg {
-    padding-inline: 5rem;
-  }
+.experienceSection {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 80px 24px;
 
   @include lt-md {
-    padding-block: 8rem;
+    padding: 60px 16px;
   }
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 60px;
+  gap: 12px;
+}
+
+.sectionBadge {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--primary);
+  letter-spacing: 2px;
+}
+
+.sectionTitle {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -1px;
+
+  @include lt-md {
+    font-size: 30px;
+  }
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sectionSubtitle {
+  font-size: 16px;
+  color: var(--dark-300);
+}
+
+/* Timeline Layout */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-left: 50px;
 
   @include lt-sm {
-    padding: 8rem 2rem;
+    padding-left: 30px;
   }
+}
 
-  .sectionHeader {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
+.timelineLine {
+  position: absolute;
+  left: 17px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary), var(--secondary), transparent);
+  opacity: 0.3;
 
-    .sectionTitle {
-      background-color: var(--primary);
-      border-radius: 1.5rem;
-      padding: 0.5rem 2.5rem;
-      width: auto;
-
-      span {
-        color: var(--light);
-      }
-    }
-
-    span {
-      color: var(--dark-300);
-      text-align: center;
-    }
+  @include lt-sm {
+    left: 7px;
   }
+}
 
-  .experiences {
-    display: flex;
+.timelineItem {
+  position: relative;
+  width: 100%;
+}
+
+.timelineNode {
+  position: absolute;
+  left: -50px;
+  top: 24px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  @include lt-sm {
+    left: -30px;
+    width: 16px;
+    height: 16px;
+    top: 30px;
+  }
+}
+
+.nodeInner {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--light);
+  border: 2px solid var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px var(--glow-color);
+
+  @include lt-sm {
+    width: 12px;
+    height: 12px;
+    border-width: 1.5px;
+  }
+}
+
+.nodeIcon {
+  color: var(--primary);
+  width: 12px;
+  height: 12px;
+
+  @include lt-sm {
+    display: none; /* Hide icon inside tiny dot on mobile */
+  }
+}
+
+.experienceCard {
+  width: 100%;
+  padding: 0 !important;
+}
+
+.cardHeader {
+  background: rgba(30, 27, 57, 0.4);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  @include lt-sm {
+    padding: 16px;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 6rem;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
 
-    .experience {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 6rem;
-      background-color: var(--experience-card-background);
-      padding: 4rem;
-      border-radius: 1.5rem;
-      box-shadow: var(--shadow-md);
+.companyLogo {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
 
-      @include lt-md {
-        gap: 4rem;
-      }
+.logoImg {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
 
-      @media only screen and (max-width: 768px) {
-        flex-direction: column;
-        gap: 2rem;
-      }
+.headerText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-grow: 1;
+}
 
-      .experienceLogo {
-        width: 24rem;
-        height: auto;
+.position {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dark);
+}
 
-        @include lt-lg {
-          width: 20rem;
-        }
+.companyName {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary);
+}
 
-        img {
-          width: 100%;
-          height: 100%;
-        }
-      }
+.duration {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--dark-400);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  padding: 6px 12px;
+  border-radius: 20px;
 
-      .experienceContent {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 2rem;
-        width: 48rem;
+  @include lt-sm {
+    align-self: flex-start;
+  }
+}
 
-        @include lt-lg {
-          width: 45rem;
-        }
+.calIcon {
+  color: var(--secondary);
+}
 
-        @include lt-md {
-          width: auto;
-        }
+.cardBody {
+  padding: 24px;
+}
 
-        @media only screen and (max-width: 768px) {
-          width: 100%;
-        }
+.summaryList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 20px;
+  margin: 0;
+}
 
-        .position {
-          @include subtitle-semi-bold;
-        }
+.summaryItem {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--dark-200);
+  list-style-type: square;
 
-        .summary {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: flex-start;
-          gap: 2rem;
-          @include body2-normal;
-          color: var(--dark-200);
-
-          @media only screen and (max-width: 768px) {
-            gap: 1rem;
-          }
-        }
-      }
-
-      .experienceDuration {
-        width: 24rem;
-        @include body2-normal;
-        color: var(--dark-200);
-
-        @include lt-lg {
-          width: 20rem;
-        }
-
-        @media only screen and (max-width: 768px) {
-          display: none;
-        }
-      }
-
-      .experienceDurationSmall {
-        width: 20rem;
-        @include body2-normal;
-        color: var(--dark-200);
-        display: none;
-
-        @media only screen and (max-width: 768px) {
-          display: block;
-        }
-      }
-    }
+  &::marker {
+    color: var(--primary);
   }
 }

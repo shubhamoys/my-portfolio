@@ -1,0 +1,199 @@
+@import "@/styles/media-queries.scss";
+
+.projectsSection {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+
+  @include lt-md {
+    padding: 60px 16px;
+  }
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 50px;
+  gap: 12px;
+}
+
+.sectionBadge {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--primary);
+  letter-spacing: 2px;
+}
+
+.sectionTitle {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -1px;
+
+  @include lt-md {
+    font-size: 30px;
+  }
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sectionSubtitle {
+  font-size: 16px;
+  color: var(--dark-300);
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+
+  @include lt-sm {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Bento card sizing for featured items on desktop */
+.featured {
+  grid-column: span 2;
+
+  @include lt-sm {
+    grid-column: span 1;
+  }
+}
+
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+}
+
+.projectContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cardHeader {
+  background: rgba(30, 27, 57, 0.4);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.headerIcon {
+  color: var(--primary);
+}
+
+.cardScope {
+  color: var(--dark-300);
+  font-family: var(--font-fira-code), monospace;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.projectBody {
+  padding: 30px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include lt-md {
+    padding: 24px;
+  }
+}
+
+.projectTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.projectDesc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--dark-200);
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.tag {
+  font-family: var(--font-fira-code), monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--secondary);
+  background: rgba(79, 70, 229, 0.08);
+  border: 1px solid rgba(79, 70, 229, 0.15);
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: var(--secondary);
+    color: var(--light);
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  padding: 20px 30px 30px;
+  border-top: 1px solid var(--glass-border);
+  background: rgba(30, 27, 57, 0.1);
+
+  @include lt-md {
+    padding: 16px 24px 24px;
+  }
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  &:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--glow-color);
+  }
+
+  &.primaryBtn {
+    background: var(--accent-gradient);
+    color: var(--light) !important;
+    border: none;
+
+    &:hover {
+      box-shadow: 0 4px 15px var(--glow-color);
+    }
+  }
+}
+
+.btnIcon {
+  width: 18px;
+  height: 18px;
+}

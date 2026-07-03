@@ -1,0 +1,107 @@
+@import "@/styles/media-queries.scss";
+
+.dockContainer {
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 98;
+
+  @include lt-md {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: 24px;
+    transform: translateX(-50%);
+  }
+}
+
+.dock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 12px;
+  border-radius: 30px;
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @include lt-md {
+    flex-direction: row;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 40px;
+  }
+}
+
+.dockItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 20px;
+  color: var(--dark-300);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  position: relative;
+
+  &:hover {
+    color: var(--primary);
+    background: rgba(124, 58, 237, 0.08);
+
+    @include lt-md {
+      background: transparent;
+    }
+  }
+
+  &.active {
+    color: var(--primary);
+    font-weight: 600;
+  }
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  position: relative;
+  z-index: 2;
+}
+
+.icon {
+  transition: transform 0.2s ease;
+}
+
+.dockItem:hover .icon {
+  transform: scale(1.15);
+}
+
+.activeDot {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  pointer-events: none;
+  z-index: -1;
+  box-shadow: 0 0 10px var(--glow-color);
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  padding-right: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+
+  @include lt-md {
+    display: none !important; /* Hide labels in mobile dock to save screen real estate */
+  }
+}

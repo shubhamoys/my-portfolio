@@ -1,0 +1,89 @@
+.loaderBg {
+  position: fixed;
+  inset: 0;
+  background-color: #07050f; /* Fixed deep dark background for loader */
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.terminal {
+  width: 100%;
+  max-width: 600px;
+  background: rgba(18, 16, 33, 0.95);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(124, 58, 237, 0.15);
+  overflow: hidden;
+  font-family: var(--font-fira-code), monospace;
+  font-size: 14px;
+}
+
+.header {
+  background: rgba(30, 27, 57, 0.5);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.red { background-color: #ef4444; }
+.yellow { background-color: #f59e0b; }
+.green { background-color: #10b981; }
+
+.title {
+  color: #a78bfa;
+  font-size: 12px;
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+.body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 220px;
+  color: #e2e8f0;
+}
+
+.logLine {
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+.prompt {
+  color: #818cf8; /* Indigo prompt symbol */
+  font-weight: bold;
+}
+
+.activeLine {
+  color: #a78bfa; /* Violet active boot log */
+  line-height: 1.6;
+}
+
+.cursor {
+  animation: blink 0.8s infinite;
+  color: #10b981;
+  font-weight: bold;
+}
+
+.doneLine {
+  color: #10b981; /* Green successful boot line */
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

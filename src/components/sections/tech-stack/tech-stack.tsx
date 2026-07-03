@@ -6,60 +6,170 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { TechDetails } from "@/lib/types";
+import BentoCard from "@/components/ui/bento-card";
+import { Wrench, Terminal, Database, Code } from "lucide-react";
 
 export default function TechStack() {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // Ensure the component is mounted before rendering (to avoid hydration mismatch)
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Function to determine which logo to use based on theme
   const getLogoSrc = (tech: TechDetails) => {
-    if (!mounted) return tech.logo; // Default during SSR
-
-    // If dark theme is active and a dark theme logo exists, use it
+    if (!mounted) return tech.logo;
     if (theme === "dark" && tech.darkThemeLogo) {
       return tech.darkThemeLogo;
     }
-
-    // Otherwise use the default logo
     return tech.logo;
   };
 
+  const handleTechClick = (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  // Group technologies based on label matching
+  const languages = TECHNOLOGIES.filter((t) =>
+    ["Javascript", "Typescript", "PHP", "Go", "Dart"].includes(t.label)
+  );
+
+  const frameworks = TECHNOLOGIES.filter((t) =>
+    ["React.js", "Next.js", "Vue.js", "Angular", "Quasar", "Ionic", "Flutter"].includes(t.label)
+  );
+
+  const backendsAndDbs = TECHNOLOGIES.filter((t) =>
+    ["Node.js", "Express.js", "Nest.js", "Laravel", "MongoDB", "MariaDB"].includes(t.label)
+  );
+
+  const tools = TECHNOLOGIES.filter((t) =>
+    ["Sass/Scss", "Git"].includes(t.label)
+  );
+
   return (
-    <div>
-      <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <div className={styles.sectionTitle}>
-            <span className="body3-medium">Tech Stack</span>
+    <div className={styles.techSection}>
+      <div className={styles.sectionHeader}>
+        <span className={styles.sectionBadge}>Arsenal</span>
+        <h2 className={styles.sectionTitle}>
+          Tech <span className={styles.highlight}>Stack</span>
+        </h2>
+        <p className={styles.sectionSubtitle}>
+          My go-to technologies for building production-ready apps 🛠️
+        </p>
+      </div>
+
+      <div className={styles.techGrid}>
+        {/* Languages Card */}
+        <BentoCard className={styles.techCard} delay={0.1}>
+          <div className={styles.cardHeader}>
+            <Code size={18} className={styles.cardIcon} />
+            <span className={styles.cardTitle}>Languages</span>
           </div>
+          <div className={styles.cardBody}>
+            {languages.map((tech) => (
+              <button
+                key={tech.label}
+                onClick={() => handleTechClick(tech.url)}
+                className={styles.techItem}
+              >
+                <div className={styles.logoWrapper}>
+                  <Image
+                    src={getLogoSrc(tech)}
+                    width={32}
+                    height={32}
+                    alt={`${tech.label} logo`}
+                    className={styles.techLogo}
+                  />
+                </div>
+                <span className={styles.techLabel}>{tech.label}</span>
+              </button>
+            ))}
+          </div>
+        </BentoCard>
 
-          <span className="subtitle-normal">
-            My Go-To Tech Stack for Building Cool Stuff 🛠️
-          </span>
-        </div>
+        {/* Frameworks Card */}
+        <BentoCard className={styles.techCard} delay={0.2}>
+          <div className={styles.cardHeader}>
+            <Terminal size={18} className={styles.cardIcon} />
+            <span className={styles.cardTitle}>Frameworks & Libs</span>
+          </div>
+          <div className={styles.cardBody}>
+            {frameworks.map((tech) => (
+              <button
+                key={tech.label}
+                onClick={() => handleTechClick(tech.url)}
+                className={styles.techItem}
+              >
+                <div className={styles.logoWrapper}>
+                  <Image
+                    src={getLogoSrc(tech)}
+                    width={32}
+                    height={32}
+                    alt={`${tech.label} logo`}
+                    className={styles.techLogo}
+                  />
+                </div>
+                <span className={styles.techLabel}>{tech.label}</span>
+              </button>
+            ))}
+          </div>
+        </BentoCard>
 
-        <div className={styles.techStack}>
-          {TECHNOLOGIES.map((technology, index) => (
-            <div
-              className={styles.technology}
-              key={index}
-              onClick={() => window.open(technology.url, "_blank")}
-            >
-              <Image
-                src={getLogoSrc(technology)}
-                width={24}
-                height={24}
-                alt={`${technology.label} logo`}
-              />
+        {/* Backends & Databases Card */}
+        <BentoCard className={styles.techCard} delay={0.3}>
+          <div className={styles.cardHeader}>
+            <Database size={18} className={styles.cardIcon} />
+            <span className={styles.cardTitle}>Backend & DBs</span>
+          </div>
+          <div className={styles.cardBody}>
+            {backendsAndDbs.map((tech) => (
+              <button
+                key={tech.label}
+                onClick={() => handleTechClick(tech.url)}
+                className={styles.techItem}
+              >
+                <div className={styles.logoWrapper}>
+                  <Image
+                    src={getLogoSrc(tech)}
+                    width={32}
+                    height={32}
+                    alt={`${tech.label} logo`}
+                    className={styles.techLogo}
+                  />
+                </div>
+                <span className={styles.techLabel}>{tech.label}</span>
+              </button>
+            ))}
+          </div>
+        </BentoCard>
 
-              <span className="body1">{technology.label}</span>
-            </div>
-          ))}
-        </div>
+        {/* Tools Card */}
+        <BentoCard className={styles.techCard} delay={0.4}>
+          <div className={styles.cardHeader}>
+            <Wrench size={18} className={styles.cardIcon} />
+            <span className={styles.cardTitle}>Design & Tools</span>
+          </div>
+          <div className={styles.cardBody}>
+            {tools.map((tech) => (
+              <button
+                key={tech.label}
+                onClick={() => handleTechClick(tech.url)}
+                className={styles.techItem}
+              >
+                <div className={styles.logoWrapper}>
+                  <Image
+                    src={getLogoSrc(tech)}
+                    width={32}
+                    height={32}
+                    alt={`${tech.label} logo`}
+                    className={styles.techLogo}
+                  />
+                </div>
+                <span className={styles.techLabel}>{tech.label}</span>
+              </button>
+            ))}
+          </div>
+        </BentoCard>
       </div>
     </div>
   );

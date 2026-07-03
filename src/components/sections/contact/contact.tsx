@@ -1,184 +1,232 @@
 "use client";
 
-import { GithubIcon, LinkedInIcon } from "@/lib/svg-icons";
 import styles from "./contact.module.scss";
 import { useState } from "react";
+import BentoCard from "@/components/ui/bento-card";
+import { Mail, Phone, MapPin, Copy, Check, Send, Terminal } from "lucide-react";
+import { GithubIcon, LinkedInIcon } from "@/lib/svg-icons";
 
 export default function Contact() {
   const [copiedItem, setCopiedItem] = useState<string | null>(null);
+  
+  // Form states
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [consoleLogs, setConsoleLogs] = useState<string[]>([]);
 
   const handleCopy = async (text: string, id: string) => {
     try {
       await navigator.clipboard.writeText(text);
       setCopiedItem(id);
-
-      // Reset the copied state after 2 seconds
-      setTimeout(() => {
-        setCopiedItem(null);
-      }, 2000);
+      setTimeout(() => setCopiedItem(null), 2000);
     } catch (err) {
       console.error("Failed to copy text: ", err);
     }
   };
 
+  const handleSend = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !email || !message) return;
+
+    setFormStatus("sending");
+    setConsoleLogs([
+      "Initializing payload...",
+      `Payload: { name: "${name}", email: "${email}" }`,
+      "Connecting to smtp.shubhamoy.dev...",
+      "POST /api/contact HTTP/1.1",
+    ]);
+
+    // Simulate network delay
+    await new Promise((resolve) => setTimeout(resolve, 800));
+    setConsoleLogs((prev) => [...prev, "Uploading message details...", "Secure handshake complete."]);
+
+    await new Promise((resolve) => setTimeout(resolve, 800));
+    setConsoleLogs((prev) => [
+      ...prev,
+      "Response: 200 OK",
+      "Message successfully queued for delivery! 🚀",
+    ]);
+    setFormStatus("success");
+
+    // Clear inputs after success
+    setName("");
+    setEmail("");
+    setMessage("");
+  };
+
+  const resetConsole = () => {
+    setFormStatus("idle");
+    setConsoleLogs([]);
+  };
+
   return (
-    <div className={styles.container}>
+    <div className={styles.contactSection}>
       <div className={styles.sectionHeader}>
-        <div className={styles.sectionTitle}>
-          <span className="body3-medium">Contact Me</span>
-        </div>
-
-        <span className="subtitle-normal">
-          Drop me a message—I&apos;ll get back faster than a well-optimized API!
-          📩
-        </span>
+        <span className={styles.sectionBadge}>Get In Touch</span>
+        <h2 className={styles.sectionTitle}>
+          Contact <span className={styles.highlight}>Me</span>
+        </h2>
+        <p className={styles.sectionSubtitle}>
+          Drop me a message—I&apos;ll get back faster than a well-optimized API! 📩
+        </p>
       </div>
 
-      <div className={styles.sectionBody}>
-        <div className={styles.row}>
-          <span className={styles.icon}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-mail"
-            >
-              <rect width="20" height="16" x="2" y="4" rx="2" />
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-            </svg>
-          </span>
+      <div className={styles.contactGrid}>
+        {/* Left Side: Contact details */}
+        <div className={styles.leftCol}>
+          <BentoCard className={styles.infoCard} delay={0.1}>
+            <div className={styles.infoItems}>
+              {/* Email item */}
+              <div className={styles.infoRow}>
+                <div className={styles.iconBox}>
+                  <Mail size={20} />
+                </div>
+                <div className={styles.infoDetails}>
+                  <span className={styles.infoLabel}>Email</span>
+                  <span className={styles.infoValue}>shubhamoys@gmail.com</span>
+                </div>
+                <button
+                  onClick={() => handleCopy("shubhamoys@gmail.com", "email")}
+                  className={styles.copyBtn}
+                  aria-label="Copy Email"
+                >
+                  {copiedItem === "email" ? <Check size={16} className={styles.greenCheck} /> : <Copy size={16} />}
+                </button>
+              </div>
 
-          <span className="subtitle-semi-bold">shubhamoys@gmail.com</span>
+              {/* Phone item */}
+              <div className={styles.infoRow}>
+                <div className={styles.iconBox}>
+                  <Phone size={20} />
+                </div>
+                <div className={styles.infoDetails}>
+                  <span className={styles.infoLabel}>Phone</span>
+                  <span className={styles.infoValue}>+91 8900532504</span>
+                </div>
+                <button
+                  onClick={() => handleCopy("+91 8900532504", "phone")}
+                  className={styles.copyBtn}
+                  aria-label="Copy Phone"
+                >
+                  {copiedItem === "phone" ? <Check size={16} className={styles.greenCheck} /> : <Copy size={16} />}
+                </button>
+              </div>
 
-          <span
-            className={styles.copy}
-            title="Copy to clipboard"
-            onClick={() => handleCopy("shubhamoys@gmail.com", "email")}
-          >
-            {copiedItem === "email" ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-check"
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-copy"
-              >
-                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
-                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-              </svg>
-            )}
-          </span>
+              {/* Location item */}
+              <div className={styles.infoRow}>
+                <div className={styles.iconBox}>
+                  <MapPin size={20} />
+                </div>
+                <div className={styles.infoDetails}>
+                  <span className={styles.infoLabel}>Location</span>
+                  <span className={styles.infoValue}>Siliguri, WB, India</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Social linkages inside bento */}
+            <div className={styles.socialsFooter}>
+              <span className={styles.socialTitle}>Social Links</span>
+              <div className={styles.socialButtons}>
+                <button
+                  onClick={() => window.open("https://github.com/shubhamoys", "_blank")}
+                  className={styles.socialBtn}
+                  aria-label="GitHub"
+                >
+                  <GithubIcon className={styles.socialIcon} />
+                </button>
+                <button
+                  onClick={() => window.open("https://www.linkedin.com/in/shubhamoy-sarker/", "_blank")}
+                  className={styles.socialBtn}
+                  aria-label="LinkedIn"
+                >
+                  <LinkedInIcon className={styles.socialIcon} />
+                </button>
+              </div>
+            </div>
+          </BentoCard>
         </div>
 
-        <div className={styles.row}>
-          <span className={styles.icon}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-phone"
-            >
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-            </svg>
-          </span>
+        {/* Right Side: Interactive Dev Console Form */}
+        <div className={styles.rightCol}>
+          <BentoCard className={styles.formCard} delay={0.2}>
+            {formStatus === "idle" || formStatus === "sending" ? (
+              <form onSubmit={handleSend} className={styles.form}>
+                <div className={styles.inputGroup}>
+                  <label htmlFor="name" className={styles.label}>Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Enter your name"
+                    className={styles.input}
+                    disabled={formStatus === "sending"}
+                  />
+                </div>
 
-          <span className="subtitle-semi-bold">+91 8900532504</span>
+                <div className={styles.inputGroup}>
+                  <label htmlFor="email" className={styles.label}>Email Address</label>
+                  <input
+                    type="email"
+                    id="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    className={styles.input}
+                    disabled={formStatus === "sending"}
+                  />
+                </div>
 
-          <span
-            className={styles.copy}
-            title="Copy to clipboard"
-            onClick={() => handleCopy("+91 8900532504", "phone")}
-          >
-            {copiedItem === "phone" ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-check"
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
+                <div className={styles.inputGroup}>
+                  <label htmlFor="message" className={styles.label}>Message</label>
+                  <textarea
+                    id="message"
+                    required
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Tell me about your project..."
+                    className={styles.textarea}
+                    rows={4}
+                    disabled={formStatus === "sending"}
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className={styles.submitBtn}
+                  disabled={formStatus === "sending" || !name || !email || !message}
+                >
+                  <Send size={18} />
+                  <span>{formStatus === "sending" ? "Transmitting..." : "Send Message"}</span>
+                </button>
+              </form>
             ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-copy"
-              >
-                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
-                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-              </svg>
+              /* Success / Log state */
+              <div className={styles.consoleWrapper}>
+                <div className={styles.consoleHeader}>
+                  <Terminal size={18} className={styles.consoleIcon} />
+                  <span className={styles.consoleTitle}>shubhamoy_smtp_daemon.log</span>
+                </div>
+                <div className={styles.consoleBody}>
+                  {consoleLogs.map((log, index) => (
+                    <div key={index} className={styles.consoleLogLine}>
+                      <span className={styles.logPrompt}>[OK]</span> {log}
+                    </div>
+                  ))}
+                  {formStatus === "success" && (
+                    <button onClick={resetConsole} className={styles.resetBtn}>
+                      Send another message
+                    </button>
+                  )}
+                </div>
+              </div>
             )}
-          </span>
-        </div>
-      </div>
-
-      <div className={styles.sectionFooter}>
-        <span className="body2-normal">Let&apos;s stay connected!</span>
-
-        <div className={styles.socialsIcons}>
-          <span
-            onClick={() =>
-              window.open("https://github.com/shubhamoys", "_blank")
-            }
-          >
-            <GithubIcon />
-          </span>
-
-          <span
-            onClick={() =>
-              window.open(
-                "https://www.linkedin.com/in/shubhamoy-sarker/",
-                "_blank"
-              )
-            }
-          >
-            <LinkedInIcon />
-          </span>
+          </BentoCard>
         </div>
       </div>
     </div>
