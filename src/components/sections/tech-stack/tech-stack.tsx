@@ -4,7 +4,7 @@ import { TECHNOLOGIES } from "@/lib/data";
 import styles from "./tech-stack.module.scss";
 import Image from "next/image";
 import { TechDetails } from "@/lib/types";
-import BentoCard from "@/components/ui/bento-card";
+import BentoCard from "@/components/ui/bento-card/bento-card";
 import { Wrench, Terminal, Database, Code } from "lucide-react";
 
 export default function TechStack() {

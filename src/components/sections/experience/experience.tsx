@@ -4,7 +4,7 @@ import { EXPERIENCES } from "@/lib/data";
 import styles from "./experience.module.scss";
 import Image from "next/image";
 import { ExperienceDetails } from "@/lib/types";
-import BentoCard from "@/components/ui/bento-card";
+import BentoCard from "@/components/ui/bento-card/bento-card";
 import { Briefcase, Calendar } from "lucide-react";
 
 const dateFormatOptions: Intl.DateTimeFormatOptions = {

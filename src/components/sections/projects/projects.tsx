@@ -2,7 +2,7 @@
 
 import { PROJECTS } from "@/lib/data";
 import styles from "./projects.module.scss";
-import BentoCard from "@/components/ui/bento-card";
+import BentoCard from "@/components/ui/bento-card/bento-card";
 import { ExternalLink, Code } from "lucide-react";
 import { GithubIcon } from "@/lib/svg-icons";
 

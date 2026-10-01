@@ -2,7 +2,7 @@
 
 import { SOCIAL_LINKS } from "@/lib/data";
 import styles from "./hero.module.scss";
-import BentoCard from "@/components/ui/bento-card";
+import BentoCard from "@/components/ui/bento-card/bento-card";
 import { MapPin } from "lucide-react";
 
 const TECH_STACK = ["React", "Next.js", "NestJS", "PostgreSQL"];

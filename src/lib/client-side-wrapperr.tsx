@@ -1,8 +1,8 @@
 "use client";
 
 import Header from "@/components/layouts/header/header";
-import SidebarDock from "@/components/navigation/sidebar-dock";
-import Loader from "@/components/layouts/loader";
+import SidebarDock from "@/components/navigation/sidebar-dock/sidebar-dock";
+import Loader from "@/components/layouts/loader/loader";
 import { useEffect, useState } from "react";
 import Footer from "@/components/layouts/footer/footer";
 import { AnimatePresence } from "framer-motion";

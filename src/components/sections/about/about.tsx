@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./about.module.scss";
-import BentoCard from "@/components/ui/bento-card";
+import BentoCard from "@/components/ui/bento-card/bento-card";
 import { Terminal, Code, Heart, Coffee } from "lucide-react";
 
 export default function About() {

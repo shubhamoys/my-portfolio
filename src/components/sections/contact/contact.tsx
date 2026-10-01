@@ -2,7 +2,7 @@
 
 import styles from "./contact.module.scss";
 import { useState } from "react";
-import BentoCard from "@/components/ui/bento-card";
+import BentoCard from "@/components/ui/bento-card/bento-card";
 import { Mail, Phone, MapPin, Copy, Check } from "lucide-react";
 import { GithubIcon, LinkedInIcon } from "@/lib/svg-icons";
 
