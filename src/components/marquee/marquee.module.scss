@@ -1,0 +1,85 @@
+@use "../../styles/breakpoints" as bp;
+
+.marquee {
+  overflow: hidden;
+  padding-block: 18px;
+  background: var(--accent);
+  color: var(--background);
+  border-block: 1px solid var(--background);
+
+  &:hover .track {
+    animation-play-state: paused;
+  }
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: slide 28s linear infinite;
+}
+
+.group {
+  display: flex;
+  flex: none;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    padding-right: 48px; /* padding, not flex gap, keeps the loop seamless */
+    font-family: var(--display);
+    font-stretch: 125%;
+    font-weight: 800;
+    font-size: 28px;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    &::after {
+      content: "✳";
+      font-size: 0.64em;
+    }
+  }
+}
+
+@include bp.tablet-down {
+  .marquee {
+    padding-block: 16px;
+  }
+  .track {
+    animation-duration: 24s;
+  }
+  .group li {
+    font-size: 24px;
+    gap: 40px;
+    padding-right: 40px;
+  }
+}
+
+@include bp.phone {
+  .marquee {
+    padding-block: 12px;
+  }
+  .track {
+    animation-duration: 20s;
+  }
+  .group li {
+    font-size: 18px;
+    gap: 28px;
+    padding-right: 28px;
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}

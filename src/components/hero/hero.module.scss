@@ -1,0 +1,162 @@
+@use "../../styles/breakpoints" as bp;
+
+.hero {
+  padding-block: 72px 56px;
+}
+
+.heroTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.name {
+  font-family: var(--display);
+  font-stretch: 125%;
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.line {
+  display: block;
+  white-space: nowrap;
+  /* CSS fallback size; FitText then fits each line exactly to the width. */
+  font-size: min(156px, calc((100vw - var(--g) * 2) / 7.9));
+}
+
+.heroFoot {
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 40px;
+  align-items: end;
+}
+
+.bio {
+  max-width: 620px;
+  font-family: var(--display);
+  font-stretch: 100%;
+  font-weight: 400;
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.35;
+}
+
+.heroActions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 52px;
+  padding: 0 26px;
+  border-radius: 999px;
+  font-size: 14px;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.2s;
+}
+
+.primary {
+  background: var(--accent);
+  color: var(--background);
+  font-weight: 500;
+
+  &:hover {
+    color: var(--background);
+    transform: translateY(-2px);
+  }
+}
+
+.ghost {
+  border: 1px solid var(--text);
+
+  &:hover {
+    background: var(--text);
+    color: var(--background);
+  }
+}
+
+@include bp.tablet-down {
+  .hero {
+    padding-block: 48px 64px;
+  }
+  .heroTop {
+    margin-bottom: 32px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+  .heroFoot {
+    display: block;
+    margin-top: 56px;
+  }
+  .bio {
+    max-width: none;
+    font-size: 24px;
+    line-height: 1.4;
+  }
+  .heroActions {
+    justify-content: flex-start;
+    margin-top: 32px;
+  }
+}
+
+@include bp.phone {
+  .hero {
+    padding-block: 32px 48px;
+  }
+  .heroTop {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 20px;
+  }
+  .eyebrow {
+    font-size: 12px;
+    line-height: 1.6;
+    letter-spacing: 0;
+  }
+  .name {
+    line-height: 0.9;
+  }
+  /* Fallback sizes; FitText fits them exactly. Second line runs larger, as designed. */
+  .line:first-child {
+    font-size: calc((100vw - var(--g) * 2) / 8.1);
+  }
+  .line:last-child {
+    font-size: calc((100vw - var(--g) * 2) / 6);
+  }
+  .heroFoot {
+    margin-top: 40px;
+  }
+  .bio {
+    font-size: 20px;
+  }
+  .heroActions {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 28px;
+  }
+  .btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,59 @@
+@use "../../styles/breakpoints" as bp;
+
+.siteFooter {
+  margin-top: 120px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--dim);
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding-block: 8px;
+    text-decoration: none;
+  }
+}
+
+@include bp.tablet-down {
+  .siteFooter {
+    margin-top: 96px;
+  }
+  .socials {
+    gap: 20px;
+  }
+}
+
+@include bp.phone {
+  .siteFooter {
+    display: block;
+    margin-top: 64px;
+    padding-top: 20px;
+
+    > span {
+      display: block;
+      margin-top: 20px;
+    }
+  }
+  .socials {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+
+    a {
+      padding-block: 12px;
+    }
+  }
+}

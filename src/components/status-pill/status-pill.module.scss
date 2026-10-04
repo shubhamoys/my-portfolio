@@ -1,0 +1,56 @@
+@use "../../styles/breakpoints" as bp;
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--signal);
+  animation: pulse 1.8s ease-out infinite;
+}
+
+.hero {
+  display: none;
+}
+
+@include bp.tablet-down {
+  .header {
+    display: none;
+  }
+  .hero {
+    display: inline-flex;
+    font-size: 12px;
+  }
+}
+
+@include bp.phone {
+  .hero {
+    gap: 8px;
+    padding: 6px 12px;
+    font-size: 11px;
+
+    .dot {
+      width: 7px;
+      height: 7px;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--signal) 60%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 10px color-mix(in srgb, var(--signal) 0%, transparent);
+  }
+}

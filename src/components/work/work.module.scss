@@ -1,0 +1,214 @@
+@use "../../styles/breakpoints" as bp;
+
+.work {
+  padding-block: 120px 80px;
+}
+
+.sectionHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.sectionNote {
+  font-size: 13px;
+  color: var(--dim);
+}
+
+.projects {
+  border-top: 1px solid var(--line);
+}
+
+.project {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) minmax(160px, 260px) 48px 40px;
+  grid-template-areas:
+    "num name tags year arrow"
+    "num desc tags year arrow";
+  column-gap: 24px;
+  row-gap: 12px;
+  align-items: center;
+  padding: 36px 20px;
+  border-bottom: 1px solid var(--line);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+
+.num {
+  grid-area: num;
+  font-size: 13px;
+  color: var(--dim);
+}
+
+.name {
+  grid-area: name;
+  align-self: end;
+  font-family: var(--display);
+  font-stretch: 110%;
+  font-weight: 800;
+  font-size: clamp(28px, 3.6vw, 52px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.desc {
+  grid-area: desc;
+  align-self: start;
+  max-width: 560px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.meta {
+  display: contents;
+}
+
+.tags {
+  grid-area: tags;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.year {
+  grid-area: year;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.arrow {
+  grid-area: arrow;
+  display: flex; // icon becomes a flex item: no baseline offset
+  font-size: 32px;
+  line-height: 1;
+  transition: transform 0.25s;
+}
+
+.num,
+.desc,
+.tags,
+.year {
+  transition: color 0.25s;
+}
+
+@media (hover: hover) {
+  .project:hover {
+    background: var(--accent);
+    color: var(--background);
+
+    .num,
+    .desc,
+    .tags,
+    .year {
+      color: var(--background);
+    }
+
+    .arrow {
+      transform: translateX(8px) rotate(-45deg);
+    }
+  }
+}
+
+@media (hover: none) {
+  .hoverHint {
+    display: none;
+  }
+}
+
+@include bp.tablet-down {
+  .work {
+    padding-block: 96px 64px;
+  }
+  .sectionHead {
+    margin-bottom: 36px;
+  }
+  .hoverHint {
+    display: none;
+  }
+  .project {
+    grid-template-columns: 28px minmax(0, 1fr) 40px;
+    grid-template-areas:
+      "num name arrow"
+      ".   desc ."
+      ".   meta .";
+    column-gap: 20px;
+    row-gap: 14px;
+    padding: 32px 16px;
+  }
+  .name {
+    align-self: center;
+    font-size: 40px;
+  }
+  .desc {
+    max-width: none;
+    line-height: 1.55;
+  }
+  .meta {
+    display: flex;
+    grid-area: meta;
+    margin-top: -2px;
+  }
+  .tags,
+  .year {
+    font-size: 12px;
+    color: var(--dim);
+  }
+  .year::before {
+    content: " · ";
+    white-space: pre;
+  }
+  .arrow {
+    font-size: 28px;
+    justify-self: end;
+  }
+}
+
+@include bp.phone {
+  .work {
+    padding-block: 72px 48px;
+  }
+  .sectionHead {
+    margin-bottom: 20px;
+  }
+  .projects {
+    border-top: 0;
+  }
+  .project {
+    grid-template-columns: minmax(0, 1fr) 40px;
+    grid-template-areas:
+      "num  arrow"
+      "name name"
+      "desc desc"
+      "meta meta";
+    row-gap: 12px;
+    padding: 24px 0;
+    border-bottom: 0;
+    border-top: 1px solid var(--line);
+  }
+  .num {
+    font-size: 12px;
+  }
+  .name {
+    font-size: 30px;
+  }
+  .arrow {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--background);
+    font-size: 22px;
+  }
+  .arrowIcon {
+    --arrow-rotate: -45deg; // ↗ in the accent circle
+  }
+}

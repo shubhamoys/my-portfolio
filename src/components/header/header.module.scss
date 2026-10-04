@@ -1,0 +1,151 @@
+@use "../../styles/breakpoints" as bp;
+
+.siteHeader {
+  position: relative;
+  z-index: 20;
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 24px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.logo {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0;
+}
+
+.nav {
+  display: flex;
+  gap: 28px;
+
+  a {
+    text-decoration: none;
+    padding-block: 12px;
+  }
+}
+
+.menuBtn {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-color: var(--accent);
+  }
+
+  svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  .iconClose {
+    display: none;
+  }
+
+  &[aria-expanded="true"] {
+    .iconOpen {
+      display: none;
+    }
+    .iconClose {
+      display: block;
+    }
+  }
+}
+
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 16px var(--g) 32px;
+  background: var(--background);
+  border-bottom: 3px solid var(--accent);
+  animation: drop 0.25s ease-out;
+
+  &[hidden] {
+    display: none;
+  }
+
+  > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-block: 18px;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    font-family: var(--display);
+    font-stretch: 125%;
+    font-weight: 900;
+    font-size: 36px;
+    text-transform: uppercase;
+
+    span {
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--dim);
+    }
+  }
+}
+
+.mobileMenuStatus {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+@include bp.tablet-down {
+  .nav {
+    gap: 24px;
+  }
+}
+
+@include bp.phone {
+  .siteHeader {
+    border-bottom: 1px solid var(--line-faint);
+  }
+  .headerInner {
+    padding-block: 14px;
+  }
+  .nav {
+    display: none;
+  }
+  .menuBtn {
+    display: inline-flex;
+  }
+}
+
+@keyframes drop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,21 @@
+.arrow {
+  display: inline-block;
+  flex: none;
+  /* The glyph inside the 24×24 viewBox spans 18 units, so 1em keeps it
+     the same visual width as the text arrows it replaces. */
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.14em;
+  background-color: currentColor;
+  -webkit-mask: url("/assets/icons/right-arrow.svg") center / contain no-repeat;
+  mask: url("/assets/icons/right-arrow.svg") center / contain no-repeat;
+  rotate: var(--arrow-rotate, 0deg);
+}
+
+.down {
+  --arrow-rotate: 90deg;
+}
+
+.upRight {
+  --arrow-rotate: -45deg;
+}

@@ -1,0 +1,119 @@
+@use "../../styles/breakpoints" as bp;
+
+.pathInner {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 64px;
+  padding-block: 80px;
+}
+
+.pathIntro {
+  :global(.h2) {
+    margin-bottom: 24px;
+    line-height: 0.9;
+  }
+
+  p {
+    max-width: 380px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+}
+
+.role {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 24px;
+  padding-block: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.when {
+  font-size: 13px;
+  color: var(--accent);
+}
+
+.title {
+  font-family: var(--display);
+  font-stretch: 100%;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.org {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--dim);
+}
+
+.what {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+
+@include bp.tablet-down {
+  .pathInner {
+    display: block;
+    padding-block: 64px;
+  }
+  .pathIntro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 32px;
+    margin-bottom: 32px;
+
+    :global(.h2) {
+      margin-bottom: 0;
+    }
+
+    p {
+      max-width: 320px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+  }
+  .brLg {
+    display: none;
+  }
+}
+
+@include bp.phone {
+  .pathInner {
+    padding-block: 48px;
+  }
+  .pathIntro {
+    display: block;
+    margin-bottom: 24px;
+
+    :global(.h2) {
+      margin-bottom: 16px;
+    }
+
+    p {
+      max-width: none;
+      line-height: 1.7;
+    }
+  }
+  .role {
+    display: block;
+    padding-block: 24px;
+  }
+  .when {
+    display: block;
+    font-size: 12px;
+  }
+  .title {
+    margin-top: 8px;
+    font-size: 21px;
+  }
+  .org {
+    font-size: 12px;
+  }
+  .what {
+    margin-top: 10px;
+  }
+}

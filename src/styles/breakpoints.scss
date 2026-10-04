@@ -1,0 +1,16 @@
+// Desktop ≥ 900px · tablet 600–899px · phone < 600px
+// Usage: @use "../../styles/breakpoints" as bp;  then  @include bp.tablet-down { ... }
+
+/// Tablet and below (< 900px)
+@mixin tablet-down {
+  @media (max-width: 899px) {
+    @content;
+  }
+}
+
+/// Phone only (< 600px)
+@mixin phone {
+  @media (max-width: 599px) {
+    @content;
+  }
+}

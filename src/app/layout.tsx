@@ -1,39 +1,54 @@
-import { ClientSideWrapper } from "@/lib/client-side-wrapperr";
-import { Providers } from "@/lib/providers";
-import "@/styles/variables.scss";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Archivo, IBM_Plex_Mono } from "next/font/google";
+import { Header } from "@/components/header/header";
+import { SkipLink } from "@/components/skip-link/skip-link";
+import { SITE } from "@/data/content";
 import "./globals.scss";
 
+const archivo = Archivo({
+  subsets: ["latin"],
+  axes: ["wdth"], // width axis 62–125 + weight 100–900
+  display: "swap",
+  variable: "--font-archivo",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-plex-mono",
+});
+
 export const metadata: Metadata = {
-  title: "Shubhamoy Sarker | Full Stack developer from Siliguri, India",
-  description:
-    "Full Stack developer crafting scalable backends and seamless user experiences.",
-  keywords: [
-    "Frontend Developer",
-    "Full Stack Developer",
-    "Mobile Developer",
-    "Next.js Developer",
-    "Nest.js Developer",
-  ],
+  title: SITE.title,
+  description: SITE.description,
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0D0D0C",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${archivo.variable} ${plexMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-          rel="stylesheet"
+        {/* Marks JS as available before first paint so scroll-reveal content doesn't flash. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
         />
       </head>
       <body>
-        <Providers>
-          <ClientSideWrapper>{children}</ClientSideWrapper>
-        </Providers>
+        <SkipLink />
+        <Header />
+        <main id="main">{children}</main>
       </body>
     </html>
   );
